@@ -1,0 +1,8 @@
+/target/
+/.cache/
+/.deps/
+/.relocation/
+/legacy/
+/user-data-export/
+/image/out/
+__pycache__/

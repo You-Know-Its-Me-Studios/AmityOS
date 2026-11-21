@@ -1,0 +1,62 @@
+{
+  "comment": "Pinned inputs outside Cargo.lock. Image packages and the Ubuntu archive snapshot are added in Phase 2.",
+  "rust": {
+    "channel": "1.91.1",
+    "rustc": "rustc 1.91.1 (ed61e7d7e 2025-11-07)",
+    "target": "x86_64-unknown-linux-gnu (host)",
+    "location": ".deps/rustup, .deps/cargo"
+  },
+  "development_host": {
+    "windows": "Windows 11 + WSL2",
+    "wsl_distribution": "Ubuntu-24.04"
+  },
+  "windows_qemu": {
+    "provider": "Stefan Weil; linked by https://www.qemu.org/download/",
+    "upstream_version": "8.2.0",
+    "version_output": "QEMU emulator version 8.2.0 (v8.2.0-12045-g3d58f9b5c5)",
+    "provider_revision": "3d58f9b5c5",
+    "installer_name": "qemu-w64-setup-20231224.exe",
+    "installer_url": "https://qemu.weilnetz.de/w64/2023/qemu-w64-setup-20231224.exe",
+    "checksum_url": "https://qemu.weilnetz.de/w64/2023/qemu-w64-setup-20231224.sha512",
+    "installer_sha512": "a54fe995a712f47f1ffeacb2be302d61684633958a8ccc1dc686773ff910658ad7e52d15d6122ac6b7887ef42b1b63697719082d2f37204bf0965fb7f67820fd",
+    "installer_bytes": 173412120,
+    "executable_sha256": "095c887300e4edcaeb0aba115bdf5d532425608486bd9949f260d6d557180ae9",
+    "dependency_count": 107,
+    "dependency_sha256": "f73450a0f9adcad81936e22c39b06443d896863788a78ea9d7482dc8d30bd9a1",
+    "dependency_fingerprint": "SHA256 of sorted UTF-8 relative-path NUL decimal-byte-length NUL SHA256 LF records for every bundled DLL and share/vgabios-stdvga.bin plus share/kvmvapic.bin",
+    "sdl2_sha256": "d221781b2d78903a46626304de02a203f02b99a43f69f1700c39526c831d8c86",
+    "display": "gtk,gl=off,grab-on-hover=off,show-menubar=off,zoom-to-fit=on",
+    "png_loader": {
+      "version": "GdkPixbuf 2.42.10; MSYS2 packaging revision1 supplements provider-era revision4 core",
+      "package": "mingw-w64-x86_64-gdk-pixbuf2-2.42.10-1-any.pkg.tar.zst",
+      "url": "https://github.com/msys2/msys2-archive/releases/download/2022-12-16-mingw64/mingw-w64-x86_64-gdk-pixbuf2-2.42.10-1-any.pkg.tar.zst",
+      "sha256": "1ebd46f2ef05b76366c23b908c84032b51a41716c40cece9c72d686562854f5d",
+      "checksum_source": "https://github.com/msys2/msys2-archive/releases/download/2022-12-16/mingw64.db",
+      "checksum_database_sha256": "e63fe80ab6179bc4bfcf6606456b68a1170ab094663035e5ce05d50f2bf52fa8",
+      "license": "LGPL-2.1-or-later; COPYING retained alongside loader",
+      "upstream_source": "https://download.gnome.org/sources/gdk-pixbuf/2.42/gdk-pixbuf-2.42.10.tar.xz",
+      "upstream_source_sha256": "ee9b6c75d13ba096907a2e3c6b27b61bcd17f5c7ebeab5a5b439d2f2e39fe44b",
+      "files": {
+        "libpixbufloader-png.dll": {
+          "member": "mingw64/lib/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.dll",
+          "sha256": "f548fd7bfba7255e6f5941105a8bbbd9743be1f013ed4932198866d0dbaf415c"
+        },
+        "COPYING": {
+          "member": "mingw64/share/licenses/gdk-pixbuf2/COPYING",
+          "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+        }
+      }
+    },
+    "extractor": {
+      "package": "Ubuntu 7zip 23.01+dfsg-11 amd64 (locally extracted, not installed)",
+      "filename": "7zip_23.01+dfsg-11_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/7/7zip/7zip_23.01+dfsg-11_amd64.deb",
+      "sha256": "0f79450d81e64326a862a8645ae1613890e486115101e51e41ca07d929388d87"
+    }
+  },
+  "ovmf": {
+    "vars_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
+    "code_sha256": "ad23261d43116abc3747d59a7837fbf578c9586a8993f4eeba064cd07eccb083",
+    "package": "2024.02-2ubuntu0.10"
+  }
+}
