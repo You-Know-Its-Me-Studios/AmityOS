@@ -1,9 +1,16 @@
 [package]
 name = "amity-ui"
+description = "AmityOS design tokens and shared interface components"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 license.workspace = true
 publish.workspace = true
 
+[features]
+# The tokens alone have no dependencies (the compositor uses them that way).
+# `iced` adds the toolkit styles and components for the shell and the apps.
+iced = ["dep:iced"]
+
 [dependencies]
+iced = { version = "0.14", default-features = false, optional = true }
