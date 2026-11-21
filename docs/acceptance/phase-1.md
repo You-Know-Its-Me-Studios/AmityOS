@@ -41,6 +41,18 @@ force-pushed; the `restructure/linux-base` branch deleted locally and on the rem
 local unreachable objects pruned. The observed verification results are in the
 "Purge verification" section below, added by the commit that follows the purge.
 
+## Purge verification
+
+Observed after the force-push of root commit `238e547`:
+
+| Check | Result |
+|---|---|
+| `git ls-remote origin` | only `refs/heads/main` at `238e547`; no tags, no other branches |
+| Local repository after `git reflog expire --expire=now --all` and `git gc --prune=now --aggressive` | 1 commit on all refs; 108 objects, 1.37 MiB |
+| `git log --all -- kernel abi boot userspace filesystem wifi browser compatibility artifacts` | empty |
+| Fresh clone from GitHub | 1 commit, 69 files, none of the retired directories, empty history for the retired paths |
+| Fetching the old tip commit from GitHub **by its hash** | **still succeeds.** GitHub keeps unreachable commits until it garbage-collects them. Anyone who knows an old commit hash can still fetch it. Only GitHub Support can remove these; the owner needs to ask them to run garbage collection and clear cached views for the repository |
+
 ## Not done or not verified
 
 - Nothing boots. There is no image, compositor, shell or daemon yet.
