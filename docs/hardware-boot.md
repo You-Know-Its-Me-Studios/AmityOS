@@ -1,8 +1,10 @@
 # Booting AmityOS on real hardware
 
 **Status: not run.** These steps have not been tried on a physical machine. The image has
-only been booted in QEMU ([phase-2 acceptance](acceptance/phase-2.md)). Expect problems
-and report what you see.
+only been booted in QEMU ([phase-2](acceptance/phase-2.md) and
+[phase-3](acceptance/phase-3.md) acceptance), where the compositor drives a virtual
+display through the same DRM/KMS path it uses on hardware, but renders in software.
+Expect problems and report what you see.
 
 ## What you need
 
@@ -57,7 +59,8 @@ The raw file is about 4 GB.
 |---|---|
 | Kernel and firmware | Ubuntu 26.04 HWE kernel (7.0) with `linux-firmware`, so common storage, network and Wi-Fi chips should load drivers |
 | Graphics | Mesa drivers for AMD and Intel. On NVIDIA cards the open-source `nouveau` driver is used; the NVIDIA driver is not installed (see [decision 0003](decisions/0003-graphics-stack.md)) |
-| Desktop | A placeholder Wayland compositor with a terminal. The AmityOS compositor and shell are Phase 3 and 4 |
+| Desktop | The AmityOS compositor and shell: taskbar, launcher (Super+Space), window switcher (Alt+Tab), maximize and snapping (Super+arrows). It has never run on a real GPU: the hardware-accelerated path, real monitors and real input devices are untested. If the GPU has no working driver, the compositor says so in the journal and renders in software |
+| Getting a text console | Ctrl+Alt+F2 switches to a virtual terminal with a login prompt; Ctrl+Alt+F1 returns to the desktop |
 | Network | Wired networks connect automatically. Wi-Fi: `nmcli device wifi connect "<name>" password "<password>"` |
 | Apps | `flatpak install flathub <app>`; `.deb` packages with `sudo apt install ./file.deb` |
 | Updates | `sudo apt update && sudo apt upgrade` (image-based signed updates are Phase 8) |
@@ -65,5 +68,6 @@ The raw file is about 4 GB.
 ## Reporting results
 
 Record the machine model, GPU, what booted and what failed, and the output of
-`journalctl -b -p warning`. Results belong in `docs/acceptance/` so the hardware state is
+`journalctl -b -p warning` and `journalctl -b -t amity-session` (the compositor and
+shell log there). Results belong in `docs/acceptance/` so the hardware state is
 tracked from observed runs only.

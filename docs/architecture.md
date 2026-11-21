@@ -8,7 +8,7 @@ Decision: [0001](decisions/0001-linux-base.md).
 ```mermaid
 flowchart TB
     subgraph Owned["AmityOS (Rust)"]
-        Shell[amity-shell: panel, launcher, switcher, notifications, assistant]
+        Shell[amity-shell: taskbar, launcher, switcher, notifications, assistant]
         Apps[Amity apps: Settings, Files, Terminal, Editor]
         UI[amity-ui: design tokens and components]
         Comp[amity-comp: Wayland compositor]
@@ -48,9 +48,10 @@ flowchart TB
 | Graphics and media | GPU drivers, Vulkan, X11 apps, audio, capture, portals | Mesa, NVIDIA, XWayland, PipeWire, xdg-desktop-portal | [0003](decisions/0003-graphics-stack.md) |
 | `amity-comp` | Wayland compositor: windows, outputs, input, per-Space session and clipboard, blur | Smithay | [0004](decisions/0004-compositor-smithay.md) |
 | `amity-ui` | Design tokens and components shared by every Amity surface | iced | [0005](decisions/0005-ui-toolkit-iced.md) |
-| `amity-shell` | Taskbar, launcher, MRU switcher, Desktop selector, notifications, control centre, assistant surface | `amity-ui`, layer-shell | [spec](specs/shell-behaviour.md) |
+| `amity-shell` | Taskbar, launcher, MRU switcher, Desktop selector, notifications, control centre, assistant surface. A separate process that the compositor starts and supervises | `amity-ui`, layer-shell | [0008](decisions/0008-shell-process-and-channel.md), [spec](specs/shell-behaviour.md) |
+| `amity-ipc` | Message types of the private channel between compositor and shell | serde | [0008](decisions/0008-shell-process-and-channel.md) |
 | `amity-spaces` | Spaces: private Home/Project/State storage, hard quotas, shares, isolation, resources | btrfs subvolumes + qgroups, bind mounts, Landlock, systemd user slices | [spec](specs/spaces.md) |
-| `amity-apps` | App lifecycle and per-Space app profiles and grants | Flatpak, portals, APT | [0007](decisions/0007-apps-and-packaging.md), [spec](specs/apps-lifecycle.md) |
+| `amity-apps` | Application catalogue (desktop entries) and launching as systemd user services today; app lifecycle and per-Space app profiles and grants in Phase 5 | Flatpak, portals, APT, systemd | [0007](decisions/0007-apps-and-packaging.md), [0008](decisions/0008-shell-process-and-channel.md), [spec](specs/apps-lifecycle.md) |
 | `amity-tasks` | Project tasks: definitions, environment, output, cancellation | transient systemd user units | [spec](specs/tasks.md) |
 | `amityd` | AI runtime: provider trait, local and remote models, context grants, VRAM scheduling, "Explain this" | llama.cpp or ONNX Runtime | [0006](decisions/0006-ai-runtime-amityd.md) |
 | Amity apps | Settings, Files, Terminal, Editor | `amity-ui`; Terminal on `alacritty_terminal` | |
@@ -73,6 +74,6 @@ flowchart TB
 
 | Environment | Use | Limits |
 |---|---|---|
-| WSL Ubuntu 24.04 | `cargo build`/`cargo test`, nested compositor under WSLg | No DRM/KMS, no real GPU compute |
-| QEMU VM from `AmityOS.ps1` | Booting the OS image | virtio-gpu only; no CUDA/ROCm |
-| Real hardware | DRM/KMS, NVIDIA/AMD compute, Unity/Unreal, Android emulator | Needed for Phase 3 hardware checks and most of Phase 7 |
+| Build root in WSL (Ubuntu 26.04 tree, `tooling/dev.sh`) | `cargo build`/`cargo test`; compositor and shell nested under WSLg (`AmityOS.ps1 nested`) | No DRM/KMS, no real GPU compute; software rendering |
+| QEMU VM from `AmityOS.ps1` | Booting the OS image; the compositor on DRM/KMS with a virtual display; acceptance suites driven through the virtual keyboard and pointer; a second virtual monitor | virtio-gpu without 3D: software rendering only; no CUDA/ROCm |
+| Real hardware | Hardware-accelerated rendering, real monitors and input devices, NVIDIA/AMD compute, Unity/Unreal, Android emulator | Not available so far. Needed to close the hardware items of Phase 3 and for most of Phase 7 |

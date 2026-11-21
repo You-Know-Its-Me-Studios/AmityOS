@@ -1,0 +1,350 @@
+{
+  "checks": [
+    {
+      "name": "kernel command line",
+      "command": "cat /proc/cmdline",
+      "exit_code": 0,
+      "output": "rw quiet splash console=tty0 console=ttyS0,115200 no_timer_check",
+      "status": "passed"
+    },
+    {
+      "name": "no build override in /usr/local/bin",
+      "command": "ls /usr/local/bin/ | grep -c amity; true",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "compositor and shell are installed",
+      "command": "command -v amity-comp amity-shell",
+      "exit_code": 0,
+      "output": "/usr/bin/amity-comp\n/usr/bin/amity-shell",
+      "status": "passed"
+    },
+    {
+      "name": "runtime libraries resolve",
+      "command": "for b in amity-comp amity-shell; do ldd \"$(command -v $b)\" | grep \"not found\"; done | wc -l",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "start the session on amity-comp",
+      "command": "systemctl stop amity-session.service; loginctl terminate-user amity 2>/dev/null; sleep 2; systemctl reset-failed amity-session.service 2>/dev/null; date \"+%Y-%m-%d %H:%M:%S\" > /run/amity-test-start; systemctl start amity-session.service; sleep 5; systemctl is-active amity-session.service",
+      "exit_code": 0,
+      "output": "active",
+      "status": "passed"
+    },
+    {
+      "name": "amity-comp is the session compositor",
+      "command": "pgrep -u amity -x amity-comp | wc -l",
+      "exit_code": 0,
+      "output": "1",
+      "status": "passed"
+    },
+    {
+      "name": "compositor answers on its debug socket",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "XWayland display is up",
+      "status": "passed",
+      "detail": 0
+    },
+    {
+      "name": "shell is running",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "starts with one output",
+      "status": "passed",
+      "detail": [
+        {
+          "name": "Virtual-1",
+          "geometry": [
+            0,
+            0,
+            1280,
+            800
+          ],
+          "work_area": [
+            0,
+            0,
+            1280,
+            724
+          ],
+          "scale": 1.0,
+          "covered_by": null
+        }
+      ]
+    },
+    {
+      "name": "launch a terminal on the first output",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'foot --app-id=term.one >/tmp/foot1.log 2>&1 &'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "window on the first output",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "a second output appears when a monitor is connected",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the second output is placed to the right of the first",
+      "status": "passed",
+      "detail": {
+        "name": "Virtual-2",
+        "geometry": [
+          1280,
+          0,
+          1024,
+          768
+        ],
+        "work_area": [
+          1280,
+          0,
+          1024,
+          768
+        ],
+        "scale": 1.0,
+        "covered_by": null
+      }
+    },
+    {
+      "name": "the first output keeps its taskbar; the second has the whole screen as work area",
+      "status": "passed",
+      "detail": [
+        [
+          0,
+          0,
+          1280,
+          724
+        ],
+        [
+          1280,
+          0,
+          1024,
+          768
+        ]
+      ]
+    },
+    {
+      "name": "existing windows stay where they are",
+      "status": "passed",
+      "detail": {
+        "id": 1,
+        "title": "foot",
+        "app_id": "term.one",
+        "minimized": false,
+        "maximized": false,
+        "fullscreen": false,
+        "output": "Virtual-1",
+        "tiling": "floating",
+        "geometry": [
+          130,
+          68,
+          696,
+          530
+        ],
+        "server_side_decoration": true,
+        "x11": false
+      }
+    },
+    {
+      "name": "launch a terminal with the pointer on the second output",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'foot --app-id=term.two >/tmp/foot2.log 2>&1 &'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "new window opens on the second output",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "and lies inside it",
+      "status": "passed",
+      "detail": [
+        1448,
+        102,
+        696,
+        530
+      ]
+    },
+    {
+      "name": "maximize fills the output the window is on",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "restore",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "a window can be dragged to the other output",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the dragged window moved by the drag distance",
+      "status": "passed",
+      "detail": {
+        "id": 2,
+        "title": "foot",
+        "app_id": "term.two",
+        "minimized": false,
+        "maximized": false,
+        "fullscreen": false,
+        "output": "Virtual-1",
+        "tiling": "floating",
+        "geometry": [
+          648,
+          102,
+          696,
+          530
+        ],
+        "server_side_decoration": true,
+        "x11": false
+      }
+    },
+    {
+      "name": "maximize there fills the first output work area",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "restore after the move",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "and dragged back",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "launch a third terminal on the second output",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'foot --app-id=term.three >/tmp/foot3.log 2>&1 &'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "third window opens on the second output",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "it is minimized; focus returns to the window used before",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the second window is maximized on the second output",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the output disappears when the monitor is disconnected",
+      "status": "passed",
+      "detail": "after 0.1 s"
+    },
+    {
+      "name": "a maximized window is maximized on the remaining monitor",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the first window did not move",
+      "status": "passed",
+      "detail": {
+        "id": 1,
+        "title": "foot",
+        "app_id": "term.one",
+        "minimized": false,
+        "maximized": false,
+        "fullscreen": false,
+        "output": "Virtual-1",
+        "tiling": "floating",
+        "geometry": [
+          130,
+          68,
+          696,
+          530
+        ],
+        "server_side_decoration": true,
+        "x11": false
+      }
+    },
+    {
+      "name": "the minimized window is still minimized and listed",
+      "status": "passed",
+      "detail": {
+        "id": 3,
+        "title": "foot",
+        "app_id": "term.three",
+        "minimized": true,
+        "maximized": false,
+        "fullscreen": false,
+        "output": null,
+        "tiling": "floating",
+        "geometry": null,
+        "server_side_decoration": true,
+        "x11": false
+      }
+    },
+    {
+      "name": "restoring the window minimized on the lost monitor shows it on the remaining one",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "and it is fully inside the work area",
+      "status": "passed",
+      "detail": [
+        584,
+        136,
+        696,
+        530
+      ]
+    },
+    {
+      "name": "all three windows are still there",
+      "status": "passed",
+      "detail": 3
+    },
+    {
+      "name": "close the terminals",
+      "command": "pkill -u amity -x foot; sleep 2; pgrep -u amity -x foot | wc -l",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "compositor and shell did not crash or restart",
+      "command": "journalctl -b --no-pager -o cat -t amity-session --since \"$(cat /run/amity-test-start)\" | grep -c -E \"panicked|RUST_BACKTRACE|the shell exited|the shell closed its channel\"; systemctl show amity-session.service -p NRestarts --value",
+      "exit_code": 0,
+      "output": "0\n0",
+      "status": "passed"
+    }
+  ],
+  "method": "root serial console; QMP input-send-event through the virtio keyboard and tablet; compositor state from its development debug socket; QMP screendump",
+  "boot_seconds_to_root_shell": 15,
+  "screenshots": [
+    "30-output-1.png",
+    "31-output-2.png",
+    "32-output-2-window.png",
+    "33-after-unplug.png"
+  ],
+  "status": "passed"
+}
