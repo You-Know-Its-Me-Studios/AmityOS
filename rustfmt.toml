@@ -1,0 +1,3 @@
+# One width for the whole workspace. 110 is what Smithay uses, so the compositor core
+# that started from its example code keeps its formatting.
+max_width = 110
