@@ -1,11 +1,13 @@
 #!/bin/sh
-# Starts the AmityOS compositor. Until amity-comp exists (Phase 3) this runs a
-# placeholder Wayland compositor so applications can be tested on the image.
+# Starts the AmityOS graphical session: the compositor, which starts the shell.
+# Run by amity-session.service as the logged-in user on the first virtual terminal.
 export XDG_CURRENT_DESKTOP=AmityOS
-export MOZ_ENABLE_WAYLAND=1
-# Software rendering is allowed so the session also starts in a VM without a GPU.
-export WLR_RENDERER_ALLOW_SOFTWARE=1
-if command -v amity-comp >/dev/null 2>&1; then
-    exec amity-comp
+export XDG_SESSION_DESKTOP=AmityOS
+export XDG_SESSION_TYPE=wayland
+# The session bus of the user's service manager (dbus-user-session).
+if [ -z "${DBUS_SESSION_BUS_ADDRESS:-}" ] && [ -n "${XDG_RUNTIME_DIR:-}" ]; then
+    export DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
 fi
-exec dbus-run-session -- labwc -s foot
+# Firefox uses Wayland natively only when asked to.
+export MOZ_ENABLE_WAYLAND=1
+exec amity-comp

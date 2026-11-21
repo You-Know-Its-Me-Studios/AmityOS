@@ -11,7 +11,12 @@ pub struct Color {
 
 impl Color {
     pub const fn rgb(hex: u32) -> Self {
-        Self { r: (hex >> 16) as u8, g: (hex >> 8) as u8, b: hex as u8, a: 255 }
+        Self {
+            r: (hex >> 16) as u8,
+            g: (hex >> 8) as u8,
+            b: hex as u8,
+            a: 255,
+        }
     }
 
     pub const fn with_alpha(self, a: u8) -> Self {
@@ -22,7 +27,11 @@ impl Color {
     pub fn luminance(self) -> f64 {
         fn channel(value: u8) -> f64 {
             let c = f64::from(value) / 255.0;
-            if c <= 0.04045 { c / 12.92 } else { ((c + 0.055) / 1.055).powf(2.4) }
+            if c <= 0.04045 {
+                c / 12.92
+            } else {
+                ((c + 0.055) / 1.055).powf(2.4)
+            }
         }
         0.2126 * channel(self.r) + 0.7152 * channel(self.g) + 0.0722 * channel(self.b)
     }
@@ -32,7 +41,11 @@ impl Color {
 pub fn contrast_ratio(a: Color, b: Color) -> f64 {
     let (light, dark) = {
         let (x, y) = (a.luminance(), b.luminance());
-        if x >= y { (x, y) } else { (y, x) }
+        if x >= y {
+            (x, y)
+        } else {
+            (y, x)
+        }
     };
     (light + 0.05) / (dark + 0.05)
 }
@@ -86,12 +99,42 @@ pub struct TypeStyle {
 /// Type scale. Space Grotesk, Inter and JetBrains Mono are SIL OFL 1.1.
 pub mod typography {
     use super::TypeStyle;
-    pub const DISPLAY: TypeStyle = TypeStyle { family: "Space Grotesk", weight: 600, size: 32.0, line_height: 40.0 };
-    pub const WINDOW_TITLE: TypeStyle = TypeStyle { family: "Inter", weight: 600, size: 20.0, line_height: 28.0 };
-    pub const BODY: TypeStyle = TypeStyle { family: "Inter", weight: 400, size: 14.0, line_height: 22.0 };
-    pub const CONTROL: TypeStyle = TypeStyle { family: "Inter", weight: 500, size: 14.0, line_height: 22.0 };
-    pub const CAPTION: TypeStyle = TypeStyle { family: "Inter", weight: 500, size: 12.0, line_height: 16.0 };
-    pub const CODE: TypeStyle = TypeStyle { family: "JetBrains Mono", weight: 400, size: 13.0, line_height: 22.0 };
+    pub const DISPLAY: TypeStyle = TypeStyle {
+        family: "Space Grotesk",
+        weight: 600,
+        size: 32.0,
+        line_height: 40.0,
+    };
+    pub const WINDOW_TITLE: TypeStyle = TypeStyle {
+        family: "Inter",
+        weight: 600,
+        size: 20.0,
+        line_height: 28.0,
+    };
+    pub const BODY: TypeStyle = TypeStyle {
+        family: "Inter",
+        weight: 400,
+        size: 14.0,
+        line_height: 22.0,
+    };
+    pub const CONTROL: TypeStyle = TypeStyle {
+        family: "Inter",
+        weight: 500,
+        size: 14.0,
+        line_height: 22.0,
+    };
+    pub const CAPTION: TypeStyle = TypeStyle {
+        family: "Inter",
+        weight: 500,
+        size: 12.0,
+        line_height: 16.0,
+    };
+    pub const CODE: TypeStyle = TypeStyle {
+        family: "JetBrains Mono",
+        weight: 400,
+        size: 13.0,
+        line_height: 22.0,
+    };
 }
 
 #[cfg(test)]
@@ -100,7 +143,15 @@ mod tests {
 
     #[test]
     fn hex_parsing() {
-        assert_eq!(surface::GROUND, Color { r: 0x07, g: 0x07, b: 0x1A, a: 255 });
+        assert_eq!(
+            surface::GROUND,
+            Color {
+                r: 0x07,
+                g: 0x07,
+                b: 0x1A,
+                a: 255
+            }
+        );
         assert_eq!(surface::GLASS.a, 189); // round(0.74 * 255)
     }
 

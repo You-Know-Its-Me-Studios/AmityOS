@@ -1,0 +1,1209 @@
+{
+  "checks": [
+    {
+      "name": "kernel command line",
+      "command": "cat /proc/cmdline",
+      "exit_code": 0,
+      "output": "rw quiet splash console=tty0 console=ttyS0,115200 no_timer_check",
+      "status": "passed"
+    },
+    {
+      "name": "no build override in /usr/local/bin",
+      "command": "ls /usr/local/bin/ | grep -c amity; true",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "compositor and shell are installed",
+      "command": "command -v amity-comp amity-shell",
+      "exit_code": 0,
+      "output": "/usr/bin/amity-comp\n/usr/bin/amity-shell",
+      "status": "passed"
+    },
+    {
+      "name": "runtime libraries resolve",
+      "command": "for b in amity-comp amity-shell; do ldd \"$(command -v $b)\" | grep \"not found\"; done | wc -l",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "start the session on amity-comp",
+      "command": "systemctl stop amity-session.service; loginctl terminate-user amity 2>/dev/null; sleep 2; systemctl reset-failed amity-session.service 2>/dev/null; date \"+%Y-%m-%d %H:%M:%S\" > /run/amity-test-start; systemctl start amity-session.service; sleep 5; systemctl is-active amity-session.service",
+      "exit_code": 0,
+      "output": "active",
+      "status": "passed"
+    },
+    {
+      "name": "amity-comp is the session compositor",
+      "command": "pgrep -u amity -x amity-comp | wc -l",
+      "exit_code": 0,
+      "output": "1",
+      "status": "passed"
+    },
+    {
+      "name": "compositor answers on its debug socket",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "XWayland display is up",
+      "status": "passed",
+      "detail": 0
+    },
+    {
+      "name": "shell is running",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "one output at the VM resolution",
+      "status": "passed",
+      "detail": {
+        "name": "Virtual-1",
+        "geometry": [
+          0,
+          0,
+          1280,
+          800
+        ],
+        "work_area": [
+          0,
+          0,
+          1280,
+          724
+        ],
+        "scale": 1.0,
+        "covered_by": null
+      }
+    },
+    {
+      "name": "taskbar reserves space at the bottom",
+      "status": "passed",
+      "detail": {
+        "work_area": [
+          0,
+          0,
+          1280,
+          724
+        ],
+        "output": [
+          1280,
+          800
+        ]
+      }
+    },
+    {
+      "name": "launch a terminal",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'foot --app-id=term.one >/tmp/foot1.log 2>&1 &'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "first window is mapped and focused",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "first window: identity",
+      "status": "passed",
+      "detail": {
+        "id": 1,
+        "title": "foot",
+        "app_id": "term.one",
+        "minimized": false,
+        "maximized": false,
+        "fullscreen": false,
+        "output": "Virtual-1",
+        "tiling": "floating",
+        "geometry": [
+          130,
+          68,
+          696,
+          530
+        ],
+        "server_side_decoration": true,
+        "x11": false
+      }
+    },
+    {
+      "name": "first window has keyboard focus",
+      "status": "passed",
+      "detail": "window:1"
+    },
+    {
+      "name": "first window lies inside the work area",
+      "status": "passed",
+      "detail": [
+        130,
+        68,
+        696,
+        530
+      ]
+    },
+    {
+      "name": "first window is at the first cascade position",
+      "status": "passed",
+      "detail": [
+        130,
+        68,
+        696,
+        530
+      ]
+    },
+    {
+      "name": "launch a second terminal",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'foot --app-id=term.two >/tmp/foot2.log 2>&1 &'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "second window is mapped and focused",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "new window takes focus and leads the use order",
+      "status": "passed",
+      "detail": "window:2"
+    },
+    {
+      "name": "second window is cascaded",
+      "status": "passed",
+      "detail": [
+        168,
+        102,
+        696,
+        530
+      ]
+    },
+    {
+      "name": "click focuses the window under the pointer",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "click raises the window in the use order",
+      "status": "passed",
+      "detail": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "Alt+Tab switches to the previous window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "switcher is closed after Alt is released",
+      "status": "passed",
+      "detail": null
+    },
+    {
+      "name": "switcher opens while Alt is held",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "switcher lists windows in use order and selects the previous one",
+      "status": "passed",
+      "detail": {
+        "candidates": [
+          2,
+          1
+        ],
+        "selected": 1
+      }
+    },
+    {
+      "name": "nothing changes while the switcher is open",
+      "status": "passed",
+      "detail": 2
+    },
+    {
+      "name": "Tab steps and wraps around",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Shift+Tab steps back",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Escape cancels the switcher",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "cancelling leaves focus unchanged",
+      "status": "passed",
+      "detail": 2
+    },
+    {
+      "name": "Super+Up maximizes",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "maximized window fills the work area",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Super+Down restores the previous geometry",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Super+Left snaps to the left half",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Super+Right snaps to the right half",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "a snapped window can be maximized",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "and returns to its floating geometry",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "terminal has a compositor-drawn title bar",
+      "status": "passed",
+      "detail": {
+        "id": 2,
+        "title": "foot",
+        "app_id": "term.two",
+        "minimized": false,
+        "maximized": false,
+        "fullscreen": false,
+        "output": "Virtual-1",
+        "tiling": "floating",
+        "geometry": [
+          168,
+          102,
+          696,
+          530
+        ],
+        "server_side_decoration": true,
+        "x11": false
+      }
+    },
+    {
+      "name": "title bar: maximize button",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "title bar: restore button",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "title bar: minimize button",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "minimizing moves focus to the next window",
+      "status": "passed",
+      "detail": 1
+    },
+    {
+      "name": "a minimized window stays in the window list",
+      "status": "passed",
+      "detail": 2
+    },
+    {
+      "name": "Alt+Tab restores a minimized window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "restored window is back where it was",
+      "status": "passed",
+      "detail": {
+        "id": 2,
+        "title": "foot",
+        "app_id": "term.two",
+        "minimized": false,
+        "maximized": false,
+        "fullscreen": false,
+        "output": "Virtual-1",
+        "tiling": "floating",
+        "geometry": [
+          168,
+          102,
+          696,
+          530
+        ],
+        "server_side_decoration": true,
+        "x11": false
+      }
+    },
+    {
+      "name": "dragging the title bar moves the window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "dragging the bottom-right corner of the frame resizes the window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the top-left corner stayed in place",
+      "status": "passed",
+      "detail": {
+        "before": [
+          268,
+          152,
+          696,
+          530
+        ],
+        "after": [
+          268,
+          152,
+          756,
+          569
+        ]
+      }
+    },
+    {
+      "name": "dragging the left edge moves that edge and keeps the right one in place",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Ctrl+Q closes the active window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "focus moves to the remaining window",
+      "status": "passed",
+      "detail": "window:1"
+    },
+    {
+      "name": "title bar: close button",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "no window has focus when none is left",
+      "status": "passed",
+      "detail": "none"
+    },
+    {
+      "name": "terminals exited",
+      "command": "sleep 1; pgrep -u amity -x foot | wc -l",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "Super+Space opens the launcher",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Super+Space closes it again",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the taskbar button opens the launcher",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Enter starts the selected application",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the launcher closes and the new window has the keyboard",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the application runs as its own systemd user service",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus systemctl --user list-units --no-legend --plain 'app-AmityOS-foot-*'",
+      "exit_code": 0,
+      "output": "app-AmityOS-foot-e9f85a3f38d49700.service loaded active running Foot",
+      "status": "passed"
+    },
+    {
+      "name": "the application sees the session displays",
+      "command": "tr \"\\0\" \"\\n\" < /proc/$(pgrep -u amity -x foot | head -1)/environ | grep -E \"^(WAYLAND_DISPLAY|DISPLAY|XDG_CURRENT_DESKTOP)=\" | sort | tr \"\\n\" \" \"",
+      "exit_code": 0,
+      "output": "DISPLAY=:0 WAYLAND_DISPLAY=wayland-1 XDG_CURRENT_DESKTOP=AmityOS",
+      "status": "passed"
+    },
+    {
+      "name": "the private sockets of the shell are not passed on to applications",
+      "command": "tr \"\\0\" \"\\n\" < /proc/$(pgrep -u amity -x foot | head -1)/environ | grep -c -E \"^(AMITY_SHELL_FD|WAYLAND_SOCKET)=\"; true",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "a press on the entry of the focused window minimizes it",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "a press on the entry of a minimized window restores and focuses it",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "launcher opens over a window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the window stays the active window while the launcher is open",
+      "status": "passed",
+      "detail": 3
+    },
+    {
+      "name": "Escape closes the launcher and returns the keyboard to the window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the launched application closes",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "launch a terminal that starts fullscreen",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'foot --fullscreen --app-id=term.full >/tmp/foot4.log 2>&1 &'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "a window that asks for it opens fullscreen on the whole monitor",
+      "status": "passed",
+      "detail": "after 0.5 s"
+    },
+    {
+      "name": "while it is the active window it covers the monitor, taskbar included",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "a fullscreen window has no title bar",
+      "status": "passed",
+      "detail": {
+        "id": 4,
+        "title": "foot",
+        "app_id": "term.full",
+        "minimized": false,
+        "maximized": false,
+        "fullscreen": true,
+        "output": "Virtual-1",
+        "tiling": "floating",
+        "geometry": [
+          0,
+          0,
+          1280,
+          800
+        ],
+        "server_side_decoration": false,
+        "x11": false
+      }
+    },
+    {
+      "name": "launch a normal terminal while it is fullscreen",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'foot --app-id=term.side >/tmp/foot5.log 2>&1 &'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "the new window takes focus and the monitor is no longer covered",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "the other window is still fullscreen, behind it",
+      "status": "passed",
+      "detail": {
+        "id": 4,
+        "title": "foot",
+        "app_id": "term.full",
+        "minimized": false,
+        "maximized": false,
+        "fullscreen": true,
+        "output": "Virtual-1",
+        "tiling": "floating",
+        "geometry": [
+          0,
+          0,
+          1280,
+          800
+        ],
+        "server_side_decoration": false,
+        "x11": false
+      }
+    },
+    {
+      "name": "Alt+Tab back to the fullscreen window covers the monitor again",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "the launcher opens over a fullscreen window and is not hidden by it",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Ctrl+Q typed into the launcher does not close the window behind it",
+      "status": "passed",
+      "detail": [
+        "term.full",
+        "term.side"
+      ]
+    },
+    {
+      "name": "closing the launcher returns to the fullscreen window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Super+Up takes the window out of fullscreen and maximizes it",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "its title bar is back",
+      "status": "passed",
+      "detail": {
+        "id": 4,
+        "title": "foot",
+        "app_id": "term.full",
+        "minimized": false,
+        "maximized": true,
+        "fullscreen": false,
+        "output": "Virtual-1",
+        "tiling": "maximized",
+        "geometry": [
+          0,
+          0,
+          1280,
+          724
+        ],
+        "server_side_decoration": true,
+        "x11": false
+      }
+    },
+    {
+      "name": "it closes",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "and so does the other terminal",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Ctrl+Alt+F2 switches to another virtual terminal",
+      "command": "sleep 2; cat /sys/class/tty/tty0/active",
+      "exit_code": 0,
+      "output": "tty2",
+      "status": "passed"
+    },
+    {
+      "name": "Ctrl+Alt+F1 returns to the session",
+      "command": "sleep 2; cat /sys/class/tty/tty0/active",
+      "exit_code": 0,
+      "output": "tty1",
+      "status": "passed"
+    },
+    {
+      "name": "launch a terminal after the switch",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'foot --app-id=term.vt >/tmp/foot3.log 2>&1 &'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "the session works again after the switch: a new window maps and takes focus",
+      "status": "passed",
+      "detail": "after 0.5 s"
+    },
+    {
+      "name": "and closes on Ctrl+Q",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "compositor and shell did not crash or restart",
+      "command": "journalctl -b --no-pager -o cat -t amity-session --since \"$(cat /run/amity-test-start)\" | grep -c -E \"panicked|RUST_BACKTRACE|the shell exited|the shell closed its channel\"; systemctl show amity-session.service -p NRestarts --value",
+      "exit_code": 0,
+      "output": "0\n0",
+      "status": "passed"
+    },
+    {
+      "name": "DNS and HTTPS",
+      "command": "curl -sS -o /dev/null -w '%{http_code}' https://archive.ubuntu.com/ubuntu/dists/resolute/Release",
+      "exit_code": 0,
+      "output": "200",
+      "status": "passed"
+    },
+    {
+      "name": "apt update",
+      "command": "apt-get update -q 2>&1 | tail -2",
+      "exit_code": 0,
+      "output": "Fetched 45.1 MB in 7s (6,394 kB/s)\nReading package lists...",
+      "status": "passed"
+    },
+    {
+      "name": "install Chrome",
+      "command": "command -v google-chrome-stable >/dev/null || { curl -fsSL -o /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && DEBIAN_FRONTEND=noninteractive apt-get install -y -q /tmp/chrome.deb 2>&1 | tail -3; }; google-chrome-stable --version",
+      "exit_code": 0,
+      "output": "update-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/google-chrome (google-chrome) in auto mode\nProcessing triggers for libc-bin (2.43-2ubuntu2.7)\u2026\nSetting up libgtk-3-bin (3.24.52-0ubuntu1)\ufffd\ufffd\ufffd\nGoogle Chrome 158.0.8127.36",
+      "status": "passed"
+    },
+    {
+      "name": "install VS Code",
+      "command": "command -v code >/dev/null || { curl -fsSL -o /tmp/code.deb 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' && DEBIAN_FRONTEND=noninteractive apt-get install -y -q /tmp/code.deb 2>&1 | tail -3; }; cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus code --version",
+      "exit_code": 0,
+      "output": "Setting up socat (1.8.1.1-1ubuntu0.1)\ufffd\ufffd\ufffd\nProcessing triggers for libc-bin (2.43-2ubuntu2.7)\ufffd\ufffd\ufffd\nProcessing triggers for shared-mime-info (2.4-5build3)\ufffd\ufffd\ufffd\n1.147.0\n8a14f0cc1b08d531eb83255ea3764ae22aa932b5\nx64",
+      "status": "passed"
+    },
+    {
+      "name": "install Blender from Flathub",
+      "command": "flatpak info --system org.blender.Blender >/dev/null 2>&1 || flatpak install --system --noninteractive -y flathub org.blender.Blender 2>&1 | tail -3; flatpak info --system org.blender.Blender | grep -E \"^ *(ID|Version|Runtime):\" | tr -s \" \" | tr \"\\n\" \";\"",
+      "exit_code": 0,
+      "output": "Installing runtime/org.freedesktop.Platform.codecs-extra/x86_64/26.08-extra\nInstalling runtime/org.freedesktop.Platform/x86_64/26.08\nInstalling app/org.blender.Blender/x86_64/stable\n ID: org.blender.Blender; Version: 5.3; Runtime: org.freedesktop.Platform/x86_64/26.08;",
+      "status": "passed"
+    },
+    {
+      "name": "prepare Chrome profile",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'mkdir -p ~/.config/google-chrome && touch \"$HOME/.config/google-chrome/First Run\"'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "launcher opens for \"chrome\"",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "a window of chrome appears",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "Chrome opened inside the work area, not under the taskbar",
+      "status": "passed",
+      "detail": {
+        "window": [
+          262,
+          8,
+          1018,
+          708
+        ],
+        "work_area": [
+          0,
+          0,
+          1280,
+          724
+        ]
+      }
+    },
+    {
+      "name": "Chrome: its taskbar entry minimizes the window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Chrome: and restores it with focus",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Chrome renders pages",
+      "command": "pgrep -u amity -af \"type=renderer\" | wc -l",
+      "exit_code": 0,
+      "output": "11",
+      "status": "passed"
+    },
+    {
+      "name": "Chrome runs in its own unit",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus systemctl --user list-units --no-legend --plain 'app-AmityOS-google*'",
+      "exit_code": 0,
+      "output": "app-AmityOS-google_chrome-e9f8354d57d8e801.service loaded active running Google Chrome",
+      "status": "passed"
+    },
+    {
+      "name": "Chrome closes on Ctrl+Q",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "Chrome processes ended",
+      "command": "pkill -u amity -f \"/opt/google/chrome/chrome\"; sleep 3; pgrep -u amity -f \"/opt/google/chrome/chrome\" | wc -l",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "no windows are left",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "launcher opens for \"visual studio\"",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "a window of code appears",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "VS Code: its taskbar entry minimizes the window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code: and restores it with focus",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code processes",
+      "command": "pgrep -u amity -f \"/usr/share/code/code\" | wc -l",
+      "exit_code": 0,
+      "output": "11",
+      "status": "passed"
+    },
+    {
+      "name": "VS Code closes on Ctrl+Q",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "VS Code processes ended",
+      "command": "pkill -u amity -f \"/usr/share/code/code\"; sleep 3; pgrep -u amity -f \"/usr/share/code/code\" | wc -l",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "no windows are left",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "launcher opens for \"blender\"",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "a window of blender appears",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "Blender process",
+      "command": "pgrep -u amity -x blender | wc -l",
+      "exit_code": 0,
+      "output": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Blender runs in the Flatpak sandbox",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus flatpak ps --columns=application | grep -c org.blender.Blender; true",
+      "exit_code": 0,
+      "output": "1",
+      "status": "passed"
+    },
+    {
+      "name": "Blender closes on Ctrl+Q",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "Blender processes ended",
+      "command": "pkill -u amity -f \"blender\"; sleep 3; pgrep -u amity -f \"blender\" | wc -l",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "no windows are left",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "start Chrome as an X11 application",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'google-chrome-stable --ozone-platform=x11 --no-first-run --no-default-browser-check about:blank >/tmp/chrome-x11.log 2>&1 &'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "Chrome (X11) opens an X11 window",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "Chrome (X11): the X11 window has the keyboard",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Chrome (X11): its taskbar entry minimizes the window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Chrome (X11): and restores it with focus",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Chrome (X11): Super+Up maximizes it to the work area",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Chrome (X11): Super+Down restores its previous geometry",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "Chrome (X11) closes on Ctrl+Q",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "Chrome (X11) processes ended",
+      "command": "pkill -u amity -f \"/opt/google/chrome/chrome\"; sleep 3; pgrep -u amity -f \"/opt/google/chrome/chrome\" | wc -l",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "no windows are left",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code setting: title bar from the window manager",
+      "command": "mkdir -p /home/amity/.config/Code/User && echo '{\"window.titleBarStyle\": \"native\"}' > /home/amity/.config/Code/User/settings.json && chown -R amity:amity /home/amity/.config/Code && cat /home/amity/.config/Code/User/settings.json",
+      "exit_code": 0,
+      "output": "{\"window.titleBarStyle\": \"native\"}",
+      "status": "passed"
+    },
+    {
+      "name": "start VS Code as an X11 application",
+      "command": "cd /home/amity && runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'code --ozone-platform=x11 --new-window >/tmp/code-x11.log 2>&1 &'",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "VS Code (X11) opens an X11 window",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "VS Code (X11): the X11 window has the keyboard",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code (X11) has the compositor title bar",
+      "status": "passed",
+      "detail": {
+        "id": 11,
+        "title": "Welcome - Visual Studio Code",
+        "app_id": "com.microsoft.VSCode",
+        "minimized": false,
+        "maximized": false,
+        "fullscreen": false,
+        "output": "Virtual-1",
+        "tiling": "floating",
+        "geometry": [
+          80,
+          8,
+          1200,
+          708
+        ],
+        "server_side_decoration": true,
+        "x11": true
+      }
+    },
+    {
+      "name": "VS Code (X11): there is room to drag the window",
+      "status": "passed",
+      "detail": {
+        "geometry": [
+          80,
+          8,
+          1200,
+          708
+        ],
+        "work_area": [
+          0,
+          0,
+          1280,
+          724
+        ]
+      }
+    },
+    {
+      "name": "VS Code (X11): dragging the title bar moves the window",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code (X11): dragging the left frame edge resizes it, right edge in place",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code (X11): the title-bar maximize button fills the work area",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code (X11): the restore button returns it",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code (X11): the minimize button minimizes it",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code (X11): Alt+Tab restores it where it was",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code (X11): the title-bar close button closes it",
+      "status": "passed",
+      "detail": "after 0.6 s"
+    },
+    {
+      "name": "VS Code (X11) closes on Ctrl+Q",
+      "status": "passed",
+      "detail": []
+    },
+    {
+      "name": "VS Code (X11) processes ended",
+      "command": "pkill -u amity -f \"/usr/share/code/code\"; sleep 3; pgrep -u amity -f \"/usr/share/code/code\" | wc -l",
+      "exit_code": 0,
+      "output": "0",
+      "status": "passed"
+    },
+    {
+      "name": "no windows are left",
+      "status": "passed",
+      "detail": "after 0.0 s"
+    },
+    {
+      "name": "VS Code setting removed",
+      "command": "rm -f /home/amity/.config/Code/User/settings.json; true",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "XWayland is still running",
+      "command": "pgrep -u amity -x Xwayland | wc -l",
+      "exit_code": 0,
+      "output": "1",
+      "status": "passed"
+    },
+    {
+      "name": "compositor and shell did not crash or restart",
+      "command": "journalctl -b --no-pager -o cat -t amity-session --since \"$(cat /run/amity-test-start)\" | grep -c -E \"panicked|RUST_BACKTRACE|the shell exited|the shell closed its channel\"; systemctl show amity-session.service -p NRestarts --value",
+      "exit_code": 0,
+      "output": "0\n0",
+      "status": "passed"
+    }
+  ],
+  "method": "root serial console; QMP input-send-event through the virtio keyboard and tablet; compositor state from its development debug socket; QMP screendump",
+  "boot_seconds_to_root_shell": 15,
+  "output": {
+    "name": "Virtual-1",
+    "geometry": [
+      0,
+      0,
+      1280,
+      800
+    ],
+    "work_area": [
+      0,
+      0,
+      1280,
+      724
+    ],
+    "scale": 1.0,
+    "covered_by": null
+  },
+  "screenshots": [
+    "10-session.png",
+    "11-two-windows.png",
+    "12-switcher.png",
+    "13-maximized.png",
+    "14-snapped.png",
+    "15-moved.png",
+    "15-resized.png",
+    "16-launcher.png",
+    "17-minimized.png",
+    "19-fullscreen.png",
+    "19-fullscreen-behind.png",
+    "19-launcher-over-fullscreen.png",
+    "18-after-vt-switch.png",
+    "20-chrome.png",
+    "21-vscode.png",
+    "21-vscode-restored.png",
+    "22-blender.png",
+    "23-chrome-x11.png",
+    "24-vscode-x11.png",
+    "24-vscode-x11-resized.png",
+    "24-vscode-x11-restored.png"
+  ],
+  "frame_resize": {
+    "start": [
+      268,
+      152,
+      696,
+      530
+    ],
+    "after_corner": [
+      268,
+      152,
+      756,
+      569
+    ],
+    "after_left_edge": [
+      232,
+      152,
+      792,
+      569
+    ]
+  },
+  "chrome_window": {
+    "id": 7,
+    "title": "What's New - Google Chrome",
+    "app_id": "google-chrome",
+    "minimized": false,
+    "maximized": false,
+    "fullscreen": false,
+    "output": "Virtual-1",
+    "tiling": "floating",
+    "geometry": [
+      262,
+      8,
+      1018,
+      708
+    ],
+    "server_side_decoration": false,
+    "x11": false
+  },
+  "vscode_window": {
+    "id": 8,
+    "title": "Welcome - Visual Studio Code",
+    "app_id": "com.microsoft.VSCode",
+    "minimized": false,
+    "maximized": false,
+    "fullscreen": false,
+    "output": "Virtual-1",
+    "tiling": "floating",
+    "geometry": [
+      80,
+      8,
+      1200,
+      708
+    ],
+    "server_side_decoration": false,
+    "x11": false
+  },
+  "blender_window": {
+    "id": 9,
+    "title": "(Unsaved) \u2014 Blender 5.3.0",
+    "app_id": "blender",
+    "minimized": false,
+    "maximized": true,
+    "fullscreen": false,
+    "output": "Virtual-1",
+    "tiling": "maximized",
+    "geometry": [
+      0,
+      0,
+      1280,
+      724
+    ],
+    "server_side_decoration": true,
+    "x11": false
+  },
+  "chrome_x11_window": {
+    "id": 10,
+    "title": "about:blank - Google Chrome",
+    "app_id": "Google-chrome",
+    "minimized": false,
+    "maximized": false,
+    "fullscreen": false,
+    "output": "Virtual-1",
+    "tiling": "floating",
+    "geometry": [
+      230,
+      8,
+      1050,
+      708
+    ],
+    "server_side_decoration": true,
+    "x11": true
+  },
+  "vscode_x11_window": {
+    "id": 11,
+    "title": "Welcome - Visual Studio Code",
+    "app_id": "com.microsoft.VSCode",
+    "minimized": false,
+    "maximized": false,
+    "fullscreen": false,
+    "output": "Virtual-1",
+    "tiling": "floating",
+    "geometry": [
+      80,
+      8,
+      1200,
+      708
+    ],
+    "server_side_decoration": true,
+    "x11": true
+  },
+  "applications_used_x11": {
+    "chrome": false,
+    "vscode": false,
+    "blender": false
+  },
+  "status": "passed"
+}

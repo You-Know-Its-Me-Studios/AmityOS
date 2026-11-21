@@ -874,3 +874,37 @@ Space 1 has z = [A, B] with B minimized. Space 2 has [D, E].
 14. **Key releases during shell surfaces.** Key releases reached the focused application even while the launcher or a menu had consumed the matching press (inferred quirk). The port should keep press and release pairs consistent.
 15. **Accessibility tree.** There was no screen-reader support. Which accessibility interface should the port target (for example AT-SPI through iced or accesskit)?
 16. **Ctrl+Alt+digit.** Only Spaces 1–9 are reachable this way. Should there be next/previous Space shortcuts?
+
+---
+
+## 15. Implementation status on the Linux base
+
+What `amity-comp` and `amity-shell` do today, by section of this document. Updated at the
+end of each phase. "Changed" marks a deliberate difference from the behaviour recorded
+above; each is the owner's to reverse.
+
+| Section | Phase 3 state |
+|---|---|
+| 1 Surface inventory | Taskbar with launcher button, one entry per window, launcher hint and clock. Launcher, switcher overlay and desktop background exist. Not yet: network indicator, Desktop selector, menus, notices, tooltips, desktop icons |
+| 2 Taskbar | One entry per window in creation order; a press follows 2.6 for a single window (focused window minimizes, any other is focused and restored). Not yet: grouping by application, pinning, per-Space order, drag to reorder, overflow, chooser and context menus, the pending guard |
+| 3 Launcher | Opens and closes as in 3.1 with **Super+Space** (changed: the design's shortcut sheet replaces Ctrl+Space). Lists installed applications from desktop entries, including Flatpak exports; Up, Down, Enter, Escape, pointer hover and press, page-wise scrolling, 80-character query as in 3.3 and 3.4. A launch always starts a new instance (3.5), as a systemd user service. **Changed:** results are ranked (name prefix, word prefix, name substring, then description, keywords and identifier) instead of plain substring order, and the query accepts any text the keyboard layout produces (open question 10). Not yet: per-Space catalogue, passing the Space folder, the FIFO launch queue, error notices (a failed start shows in the launcher), the design's assistant prompt, projects and actions |
+| 4 MRU switcher | **Alt+Tab** and Alt+Shift+Tab only (changed: Ctrl+Tab is left to applications, open question 2). Snapshot of candidates in use order including minimized windows, initial step, Tab and Shift+Tab with wraparound, Escape or Backspace cancels, releasing Alt commits, a pointer press cancels, a closed window leaves the list: as in 4.1 to 4.3. Client popups are not candidates (open question 1) |
+| 5 Desktop (Space) selector | Not yet (Phase 5) |
+| 6.1 Window kinds | A window draws its own frame or gets the compositor's title bar (36 px, three 38 px controls); which one is the application's choice. No-taskbar and no-activate kinds: not yet |
+| 6.2 Focus | Click to focus with the press also delivered; a press on the empty desktop removes focus; focus raises and restores; closing or minimizing the focused window focuses the most recently used visible one; a new window is focused when its first content arrives. Shell surfaces take the keyboard without changing the active window. Not yet: focus-intent policy for restored sessions |
+| 6.3 Stacking | Focus raises. A new window is always raised (changed from "below the focused window": every new window is also focused today) |
+| 6.4 Title-bar controls | Close, maximize or restore, minimize zones acting on press; double-click within 400 ms and 4 px toggles maximize; a press starts a move. A maximized window can also be dragged off its maximized state (changed: the recorded behaviour required restoring first) |
+| 6.5 Move | The window follows the pointer. **Changed:** the title bar must stay inside the work area and 120 px of the window's width must stay on the screen, instead of the whole window. This is what lets a window be dragged to another monitor or parked partly off-screen, as on other desktops |
+| 6.6 Resize | Windows that draw their own frame resize themselves. Windows with the compositor's title bar resize by a 5 px band inside the frame (corners 14 px). The size updates live (open question 7). Not yet: per-application minimum sizes, limiting a resize to the work area |
+| 6.7 Maximize, restore | As recorded, plus snapping to the left and right half (Super+Left, Super+Right) and Super+Up, Super+Down from the shortcut sheet |
+| 6.8 Minimize, restore | As recorded |
+| 6.9 Close | A request to the application: title-bar control, taskbar, **Ctrl+Q** (changed from Ctrl+Alt+Q, per the shortcut sheet) |
+| 6.10 Pointer capture | Implicit grab while a button is held (Wayland semantics) |
+| 6.11 Initial placement | Cascade as recorded (test vector TV-18), on the monitor the pointer is on. Per-application minimum sizes: not yet |
+| 6.12 Fixed-layout Spaces | Not yet (Phase 5) |
+| 6.13 Limits | Not enforced as hard caps. The window list sent to the shell is bounded instead: 256 windows, 127 bytes per title |
+| 7 Shortcuts | From the design's shortcut sheet (screenshot 27): Super+Space, Alt+Tab, Ctrl+Q, Super+Up, Super+Down, Super+Left, Super+Right; Ctrl+Alt+F1 to F12 switch virtual terminals. Not yet: every other shortcut on the sheet (lock, control centre, screenshot, settings, shortcut sheet, workspaces, snap layouts, the Amity shortcuts) |
+| 8 Panel keyboard navigation, 9 notices, 10 tooltips, 11 desktop surface | Not yet |
+| 12 Accessibility | Not yet beyond keyboard access to the launcher and switcher (Phase 4) |
+| Fullscreen (not in the original) | A fullscreen window covers its monitor only while it is the active window and neither launcher nor switcher is open; see decision 0004 |
+| Several monitors (not in the original) | New windows open on the pointer's monitor; maximize, snap and fullscreen use the window's monitor; windows follow their monitor when the layout changes and move to a remaining monitor when theirs is unplugged |

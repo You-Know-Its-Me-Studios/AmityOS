@@ -1,9 +1,61 @@
 [package]
 name = "amity-comp"
+description = "The AmityOS Wayland compositor"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 license.workspace = true
 publish.workspace = true
 
+# The compositor core started from Smithay's "anvil" example compositor (MIT,
+# see LICENSE-SMITHAY.txt). Feature names are kept from it for now.
+[features]
+default = ["egl", "winit", "udev", "xwayland"]
+egl = ["smithay/use_system_lib", "smithay/backend_egl"]
+udev = [
+    "smithay-drm-extras",
+    "libdisplay-info",
+    "smithay/backend_libinput",
+    "smithay/backend_udev",
+    "smithay/backend_drm",
+    "smithay/backend_gbm",
+    "smithay/backend_vulkan",
+    "smithay/backend_egl",
+    "smithay/backend_session_libseat",
+    "smithay/renderer_gl",
+    "smithay/renderer_pixman",
+    "smithay/renderer_multi",
+    "xcursor",
+]
+winit = ["smithay/backend_winit", "smithay/backend_drm"]
+xwayland = ["smithay/xwayland", "x11rb", "smithay/x11rb_event_source", "xcursor"]
+
 [dependencies]
+amity-ipc = { path = "../amity-ipc" }
+bitflags = "2.2.1"
+profiling = "1.0"
+serde = { workspace = true }
+serde_json = { workspace = true }
+libdisplay-info = { version = "0.3.0", optional = true }
+smithay-drm-extras = { version = "0.1.0", optional = true, default-features = false }
+thiserror = "1"
+tracing = { version = "0.1.37", features = ["max_level_trace", "release_max_level_debug"] }
+tracing-subscriber = { version = "0.3.16", features = ["env-filter"] }
+xcursor = { version = "0.3.3", optional = true }
+xkbcommon = "0.8.0"
+
+[dependencies.smithay]
+version = "0.7.0"
+default-features = false
+features = ["desktop", "wayland_frontend"]
+
+[dependencies.x11rb]
+version = "0.13.0"
+default-features = false
+features = ["composite"]
+optional = true
+
+[lints.rust]
+# Inherited optional code paths (debug overlays, the X11 backend, profilers)
+# are not built; they are removed as the compositor is reworked.
+unexpected_cfgs = { level = "allow" }

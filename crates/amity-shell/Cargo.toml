@@ -1,5 +1,6 @@
 [package]
 name = "amity-shell"
+description = "The AmityOS shell: taskbar, launcher and window switcher"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
@@ -7,3 +8,14 @@ license.workspace = true
 publish.workspace = true
 
 [dependencies]
+amity-apps = { path = "../amity-apps" }
+amity-ipc = { path = "../amity-ipc" }
+amity-ui = { path = "../amity-ui", features = ["iced"] }
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+# Software rendering only for now: it works on every machine, including VMs
+# without a GPU. GPU rendering (wgpu) is revisited with the Phase 4 motion work.
+iced = { version = "0.14", default-features = false, features = ["tiny-skia", "wayland", "image-without-codecs", "thread-pool"] }
+# The formats the shell decodes (wallpapers). iced's "image" feature would enable
+# every codec of the image crate, including an AV1 encoder.
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+iced_layershell = { version = "0.19", default-features = false }

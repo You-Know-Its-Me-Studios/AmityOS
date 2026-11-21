@@ -5,6 +5,8 @@
 //! surface takes colour, type, shape and depth from this crate, never from
 //! local constants.
 
+#[cfg(feature = "iced")]
+pub mod kit;
 pub mod tokens;
 
 pub use tokens::{contrast_ratio, Color};
