@@ -9,7 +9,7 @@ broken one.
 |---|---|---|
 | 0 Plan | [Migration plan](migration/plan.md) and decision records | Done: [phase-0](acceptance/phase-0.md) |
 | 1 Restructure | Earlier prototype code removed from the tree and from history; new Cargo workspace; behaviour [specs](specs/) | `cargo build` and `cargo test` pass on Linux (WSL); a fresh clone contains none of the removed code. [phase-1](acceptance/phase-1.md) |
-| 2 Bootable image | mkosi builds a branded image and installable ISO; `AmityOS.ps1` boots it in QEMU from Windows with storage on F: | Boots to a graphical session; networking works; Chrome and VS Code install and launch; real-hardware boot steps documented |
+| 2 Bootable image | mkosi builds a branded image and installable ISO; `AmityOS.ps1` boots it in QEMU from Windows with storage on F: | Done in a VM: [phase-2](acceptance/phase-2.md). Real hardware not run; steps in [hardware-boot](hardware-boot.md) |
 | 3 Compositor and shell MVP | `amity-comp` nested and on DRM/KMS: window management, XWayland, taskbar, launcher, MRU switcher, multi-monitor | VS Code, Chrome and Blender run on it |
 | 4 Redesign | Design inventory, design system in `amity-ui`, every design screenshot implemented | A saved side-by-side comparison for each screenshot; gaps and conflicts listed; WCAG AA, keyboard navigation, 100–200 % scaling, reduced motion |
 | 5 Spaces, apps, tasks | `amity-spaces`, `amity-apps`, `amity-tasks` | Create a Space, set a quota, share a folder, launch an app in a Space, switch Spaces without killing apps, restore a session after reboot |

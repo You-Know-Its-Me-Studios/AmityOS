@@ -1,0 +1,173 @@
+{
+  "checks": [
+    {
+      "name": "os-release is AmityOS",
+      "command": "cat /etc/os-release",
+      "exit_code": 0,
+      "output": "PRETTY_NAME=\"AmityOS 0.1 (development)\"\nNAME=\"AmityOS\"\nVERSION_ID=\"0.1\"\nVERSION=\"0.1 (development)\"\nVERSION_CODENAME=resolute\nID=amityos\nID_LIKE=\"ubuntu debian\"\nHOME_URL=\"https://github.com/You-Know-Its-Me-Studios/AmityOS\"\nUBUNTU_CODENAME=resolute\nIMAGE_ID=\"amityos\"\nIMAGE_VERSION=\"0.1.0\"\nDEFAULT_HOSTNAME=\"amityos\"",
+      "status": "passed"
+    },
+    {
+      "name": "kernel",
+      "command": "uname -r",
+      "exit_code": 0,
+      "output": "7.0.0-44-generic",
+      "status": "passed"
+    },
+    {
+      "name": "boot finished",
+      "command": "systemctl is-system-running --wait || systemctl --failed --no-legend",
+      "exit_code": 0,
+      "output": "running",
+      "status": "passed"
+    },
+    {
+      "name": "root filesystem is btrfs and was grown",
+      "command": "findmnt -no FSTYPE,SIZE /; lsblk -bno SIZE /dev/vda | head -1",
+      "exit_code": 0,
+      "output": "btrfs   63G\n68719476736",
+      "status": "passed"
+    },
+    {
+      "name": "graphical session active",
+      "command": "systemctl is-active amity-session.service",
+      "exit_code": 0,
+      "output": "active",
+      "status": "passed"
+    },
+    {
+      "name": "wayland socket present",
+      "command": "ls /run/user/$(id -u amity)/ | grep wayland",
+      "exit_code": 0,
+      "output": "wayland-0\nwayland-0.lock",
+      "status": "passed"
+    },
+    {
+      "name": "network address",
+      "command": "ip -4 -o addr show scope global | awk '{print $2, $4}'",
+      "exit_code": 0,
+      "output": "enp0s5 10.0.2.15/24",
+      "status": "passed"
+    },
+    {
+      "name": "NetworkManager connected",
+      "command": "nmcli -t -f STATE general",
+      "exit_code": 0,
+      "output": "connected",
+      "status": "passed"
+    },
+    {
+      "name": "DNS and HTTPS",
+      "command": "curl -sS -o /dev/null -w '%{http_code}' https://archive.ubuntu.com/ubuntu/dists/resolute/Release",
+      "exit_code": 0,
+      "output": "200",
+      "status": "passed"
+    },
+    {
+      "name": "Flathub remote configured",
+      "command": "flatpak remotes --system --columns=name,url",
+      "exit_code": 0,
+      "output": "Name    URL\nflathub https://dl.flathub.org/repo/",
+      "status": "passed"
+    },
+    {
+      "name": "apt update",
+      "command": "apt-get update -q 2>&1 | tail -2",
+      "exit_code": 0,
+      "output": "Fetched 45.1 MB in 3s (16.0 MB/s)\nReading package lists...",
+      "status": "passed"
+    },
+    {
+      "name": "download Chrome",
+      "command": "curl -fsSL -o /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && ls -l /tmp/chrome.deb",
+      "exit_code": 0,
+      "output": "-rw-r--r-- 1 root root 152702276 Nov 21 02:15 /tmp/chrome.deb",
+      "status": "passed"
+    },
+    {
+      "name": "install Chrome",
+      "command": "DEBIAN_FRONTEND=noninteractive apt-get install -y -q /tmp/chrome.deb 2>&1 | tail -3",
+      "exit_code": 0,
+      "output": "update-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/google-chrome (google-chrome) in auto mode\nProcessing triggers for libc-bin (2.43-2ubuntu2.7)\ufffd\ufffd\ufffd\nSetting up libgtk-3-bin (3.24.52-0ubuntu1)\ufffd\ufffd\ufffd",
+      "status": "passed"
+    },
+    {
+      "name": "Chrome version",
+      "command": "google-chrome-stable --version",
+      "exit_code": 0,
+      "output": "Google Chrome 158.0.8127.36",
+      "status": "passed"
+    },
+    {
+      "name": "download VS Code",
+      "command": "curl -fsSL -o /tmp/code.deb 'https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64' && ls -l /tmp/code.deb",
+      "exit_code": 0,
+      "output": "-rw-r--r-- 1 root root 294878630 Nov 21 02:16 /tmp/code.deb",
+      "status": "passed"
+    },
+    {
+      "name": "install VS Code",
+      "command": "DEBIAN_FRONTEND=noninteractive apt-get install -y -q /tmp/code.deb 2>&1 | tail -3",
+      "exit_code": 0,
+      "output": "Setting up socat (1.8.1.1-1ubuntu0.1)\ufffd\ufffd\ufffd\nProcessing triggers for libc-bin (2.43-2ubuntu2.7)\ufffd\ufffd\ufffd\nProcessing triggers for shared-mime-info (2.4-5build3)\ufffd\ufffd\ufffd",
+      "status": "passed"
+    },
+    {
+      "name": "VS Code version",
+      "command": "runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus code --version",
+      "exit_code": 0,
+      "output": "1.147.0\n8a14f0cc1b08d531eb83255ea3764ae22aa932b5\nx64",
+      "status": "passed"
+    },
+    {
+      "name": "launch Chrome",
+      "command": "runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'google-chrome-stable --no-first-run --no-default-browser-check about:version >/tmp/chrome.log 2>&1 &'; sleep 25; pgrep -u amity -f \"chrome\" | wc -l",
+      "exit_code": 0,
+      "output": "17",
+      "status": "passed"
+    },
+    {
+      "name": "Chrome window on Wayland or XWayland",
+      "command": "sleep 5; pgrep -u amity -af \"type=renderer\" | wc -l",
+      "exit_code": 0,
+      "output": "8",
+      "status": "passed"
+    },
+    {
+      "name": "close Chrome",
+      "command": "pkill -u amity -f chrome; sleep 3; true",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "launch VS Code",
+      "command": "runuser -u amity -- env XDG_RUNTIME_DIR=/run/user/$(id -u amity) WAYLAND_DISPLAY=$(basename $(ls /run/user/$(id -u amity)/wayland-? | head -1)) DISPLAY=:$(ls /tmp/.X11-unix 2>/dev/null | head -1 | tr -d X) DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u amity)/bus sh -c 'code --new-window >/tmp/code.log 2>&1 &'; sleep 30; pgrep -u amity -f \"/usr/share/code/code\" | wc -l",
+      "exit_code": 0,
+      "output": "11",
+      "status": "passed"
+    },
+    {
+      "name": "VS Code log",
+      "command": "tail -5 /tmp/code.log",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    },
+    {
+      "name": "close VS Code",
+      "command": "pkill -u amity -f /usr/share/code/code; sleep 2; true",
+      "exit_code": 0,
+      "output": "",
+      "status": "passed"
+    }
+  ],
+  "method": "root serial console + QMP screendump; no host input automation",
+  "boot_seconds_to_root_shell": 12,
+  "screenshots": [
+    "01-session.png",
+    "02-chrome.png",
+    "03-vscode.png"
+  ],
+  "status": "passed"
+}

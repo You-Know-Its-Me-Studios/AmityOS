@@ -1,0 +1,11 @@
+#!/bin/sh
+# Starts the AmityOS compositor. Until amity-comp exists (Phase 3) this runs a
+# placeholder Wayland compositor so applications can be tested on the image.
+export XDG_CURRENT_DESKTOP=AmityOS
+export MOZ_ENABLE_WAYLAND=1
+# Software rendering is allowed so the session also starts in a VM without a GPU.
+export WLR_RENDERER_ALLOW_SOFTWARE=1
+if command -v amity-comp >/dev/null 2>&1; then
+    exec amity-comp
+fi
+exec dbus-run-session -- labwc -s foot

@@ -1,0 +1,28 @@
+# The AmityOS graphical session on the first virtual terminal.
+[Unit]
+Description=AmityOS graphical session
+After=systemd-user-sessions.service plymouth-quit-wait.service dbus.socket systemd-logind.service getty@tty1.service
+Wants=dbus.socket systemd-logind.service
+Conflicts=getty@tty1.service
+ConditionPathExists=/dev/tty1
+
+[Service]
+User=amity
+WorkingDirectory=~
+PAMName=login
+TTYPath=/dev/tty1
+TTYReset=yes
+TTYVHangup=yes
+TTYVTDisallocate=yes
+StandardInput=tty-fail
+StandardOutput=journal
+StandardError=journal
+UtmpIdentifier=tty1
+UtmpMode=user
+Environment=XDG_SESSION_TYPE=wayland
+ExecStart=/usr/libexec/amity-session
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical.target

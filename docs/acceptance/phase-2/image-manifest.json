@@ -1,0 +1,3346 @@
+{
+  "manifest_version": 1,
+  "config": {
+    "name": "amityos",
+    "distribution": "ubuntu",
+    "architecture": "x86-64",
+    "output_format": "disk",
+    "version": "0.1.0",
+    "release": "resolute"
+  },
+  "packages": [
+    {
+      "type": "deb",
+      "name": "3cpio",
+      "version": "0.14.0-1ubuntu1",
+      "architecture": "amd64",
+      "size": 730112
+    },
+    {
+      "type": "deb",
+      "name": "adduser",
+      "version": "3.153ubuntu1",
+      "architecture": "all",
+      "size": 447488
+    },
+    {
+      "type": "deb",
+      "name": "amd64-microcode",
+      "version": "3.20251202.1ubuntu2",
+      "architecture": "amd64",
+      "size": 906240
+    },
+    {
+      "type": "deb",
+      "name": "apt",
+      "version": "3.2.1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 4503552
+    },
+    {
+      "type": "deb",
+      "name": "base-files",
+      "version": "14ubuntu6.3",
+      "architecture": "amd64",
+      "size": 450560
+    },
+    {
+      "type": "deb",
+      "name": "base-passwd",
+      "version": "3.6.8",
+      "architecture": "amd64",
+      "size": 283648
+    },
+    {
+      "type": "deb",
+      "name": "bash",
+      "version": "5.3-2ubuntu1",
+      "architecture": "amd64",
+      "size": 2068480
+    },
+    {
+      "type": "deb",
+      "name": "bash-completion",
+      "version": "1:2.16.0-8build1",
+      "architecture": "all",
+      "size": 1998848
+    },
+    {
+      "type": "deb",
+      "name": "btrfs-progs",
+      "version": "6.17.1-1build1",
+      "architecture": "amd64",
+      "size": 5194752
+    },
+    {
+      "type": "deb",
+      "name": "bubblewrap",
+      "version": "0.11.1-1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 136192
+    },
+    {
+      "type": "deb",
+      "name": "ca-certificates",
+      "version": "20260816ubuntu0.26.04.2",
+      "architecture": "all",
+      "size": 337920
+    },
+    {
+      "type": "deb",
+      "name": "coreutils",
+      "version": "9.5-1ubuntu2+0.0.0~ubuntu25",
+      "architecture": "all",
+      "size": 10240
+    },
+    {
+      "type": "deb",
+      "name": "coreutils-from-uutils",
+      "version": "0.0.0~ubuntu25",
+      "architecture": "all",
+      "size": 242688
+    },
+    {
+      "type": "deb",
+      "name": "curl",
+      "version": "8.18.0-1ubuntu2.8",
+      "architecture": "amd64",
+      "size": 524288
+    },
+    {
+      "type": "deb",
+      "name": "dash",
+      "version": "0.5.12-12ubuntu3",
+      "architecture": "amd64",
+      "size": 204800
+    },
+    {
+      "type": "deb",
+      "name": "dbus",
+      "version": "1.16.2-2ubuntu4",
+      "architecture": "amd64",
+      "size": 144384
+    },
+    {
+      "type": "deb",
+      "name": "dbus-bin",
+      "version": "1.16.2-2ubuntu4",
+      "architecture": "amd64",
+      "size": 197632
+    },
+    {
+      "type": "deb",
+      "name": "dbus-daemon",
+      "version": "1.16.2-2ubuntu4",
+      "architecture": "amd64",
+      "size": 351232
+    },
+    {
+      "type": "deb",
+      "name": "dbus-session-bus-common",
+      "version": "1.16.2-2ubuntu4",
+      "architecture": "all",
+      "size": 84992
+    },
+    {
+      "type": "deb",
+      "name": "dbus-system-bus-common",
+      "version": "1.16.2-2ubuntu4",
+      "architecture": "all",
+      "size": 96256
+    },
+    {
+      "type": "deb",
+      "name": "dbus-user-session",
+      "version": "1.16.2-2ubuntu4",
+      "architecture": "amd64",
+      "size": 89088
+    },
+    {
+      "type": "deb",
+      "name": "dconf-gsettings-backend",
+      "version": "0.49.0-4",
+      "architecture": "amd64",
+      "size": 75776
+    },
+    {
+      "type": "deb",
+      "name": "dconf-service",
+      "version": "0.49.0-4",
+      "architecture": "amd64",
+      "size": 99328
+    },
+    {
+      "type": "deb",
+      "name": "debconf",
+      "version": "1.5.92",
+      "architecture": "all",
+      "size": 519168
+    },
+    {
+      "type": "deb",
+      "name": "debianutils",
+      "version": "5.23.2build1",
+      "architecture": "amd64",
+      "size": 234496
+    },
+    {
+      "type": "deb",
+      "name": "diffutils",
+      "version": "1:3.12-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 458752
+    },
+    {
+      "type": "deb",
+      "name": "dirmngr",
+      "version": "2.4.8-4ubuntu3.1",
+      "architecture": "amd64",
+      "size": 736256
+    },
+    {
+      "type": "deb",
+      "name": "dosfstools",
+      "version": "4.2-1.2build1",
+      "architecture": "amd64",
+      "size": 249856
+    },
+    {
+      "type": "deb",
+      "name": "dpkg",
+      "version": "1.23.7ubuntu1",
+      "architecture": "amd64",
+      "size": 6354944
+    },
+    {
+      "type": "deb",
+      "name": "efibootmgr",
+      "version": "18-4ubuntu1",
+      "architecture": "amd64",
+      "size": 95232
+    },
+    {
+      "type": "deb",
+      "name": "ethtool",
+      "version": "1:6.19-1",
+      "architecture": "amd64",
+      "size": 1105920
+    },
+    {
+      "type": "deb",
+      "name": "file",
+      "version": "1:5.46-5build2",
+      "architecture": "amd64",
+      "size": 61440
+    },
+    {
+      "type": "deb",
+      "name": "findutils",
+      "version": "4.10.0-3build2",
+      "architecture": "amd64",
+      "size": 585728
+    },
+    {
+      "type": "deb",
+      "name": "flatpak",
+      "version": "1.16.6-1",
+      "architecture": "amd64",
+      "size": 6270976
+    },
+    {
+      "type": "deb",
+      "name": "fontconfig",
+      "version": "2.17.1-3ubuntu1",
+      "architecture": "amd64",
+      "size": 479232
+    },
+    {
+      "type": "deb",
+      "name": "fontconfig-config",
+      "version": "2.17.1-3ubuntu1",
+      "architecture": "amd64",
+      "size": 248832
+    },
+    {
+      "type": "deb",
+      "name": "fonts-inter",
+      "version": "4.1+ds-1",
+      "architecture": "all",
+      "size": 21801984
+    },
+    {
+      "type": "deb",
+      "name": "fonts-jetbrains-mono",
+      "version": "2.304+ds-6",
+      "architecture": "all",
+      "size": 7634944
+    },
+    {
+      "type": "deb",
+      "name": "fonts-noto-core",
+      "version": "20201225-2build1",
+      "architecture": "all",
+      "size": 43572224
+    },
+    {
+      "type": "deb",
+      "name": "fonts-noto-mono",
+      "version": "20201225-2build1",
+      "architecture": "all",
+      "size": 1183744
+    },
+    {
+      "type": "deb",
+      "name": "foot",
+      "version": "1.25.0-1",
+      "architecture": "amd64",
+      "size": 716800
+    },
+    {
+      "type": "deb",
+      "name": "fuse3",
+      "version": "3.18.2-1",
+      "architecture": "amd64",
+      "size": 99328
+    },
+    {
+      "type": "deb",
+      "name": "gcc-16-base",
+      "version": "16-20260322-1ubuntu1",
+      "architecture": "amd64",
+      "size": 107520
+    },
+    {
+      "type": "deb",
+      "name": "glib-networking",
+      "version": "2.80.1-1build2",
+      "architecture": "amd64",
+      "size": 205824
+    },
+    {
+      "type": "deb",
+      "name": "glib-networking-common",
+      "version": "2.80.1-1build2",
+      "architecture": "all",
+      "size": 45056
+    },
+    {
+      "type": "deb",
+      "name": "glib-networking-services",
+      "version": "2.80.1-1build2",
+      "architecture": "amd64",
+      "size": 46080
+    },
+    {
+      "type": "deb",
+      "name": "glycin-loaders",
+      "version": "2.1.5+ds-0ubuntu0.2",
+      "architecture": "amd64",
+      "size": 13615104
+    },
+    {
+      "type": "deb",
+      "name": "glycin-thumbnailers",
+      "version": "2.1.5+ds-0ubuntu0.2",
+      "architecture": "amd64",
+      "size": 514048
+    },
+    {
+      "type": "deb",
+      "name": "gnu-coreutils",
+      "version": "9.7-3ubuntu2.1",
+      "architecture": "amd64",
+      "size": 7081984
+    },
+    {
+      "type": "deb",
+      "name": "gnupg",
+      "version": "2.4.8-4ubuntu3.1",
+      "architecture": "all",
+      "size": 485376
+    },
+    {
+      "type": "deb",
+      "name": "gpg",
+      "version": "2.4.8-4ubuntu3.1",
+      "architecture": "amd64",
+      "size": 1465344
+    },
+    {
+      "type": "deb",
+      "name": "gpg-agent",
+      "version": "2.4.8-4ubuntu3.1",
+      "architecture": "amd64",
+      "size": 666624
+    },
+    {
+      "type": "deb",
+      "name": "gpgconf",
+      "version": "2.4.8-4ubuntu3.1",
+      "architecture": "amd64",
+      "size": 269312
+    },
+    {
+      "type": "deb",
+      "name": "gpgsm",
+      "version": "2.4.8-4ubuntu3.1",
+      "architecture": "amd64",
+      "size": 581632
+    },
+    {
+      "type": "deb",
+      "name": "gpgv",
+      "version": "2.4.8-4ubuntu3.1",
+      "architecture": "amd64",
+      "size": 338944
+    },
+    {
+      "type": "deb",
+      "name": "grep",
+      "version": "3.12-1",
+      "architecture": "amd64",
+      "size": 372736
+    },
+    {
+      "type": "deb",
+      "name": "grim",
+      "version": "1.4.0+ds-2build3",
+      "architecture": "amd64",
+      "size": 54272
+    },
+    {
+      "type": "deb",
+      "name": "gsettings-desktop-schemas",
+      "version": "50.0-1ubuntu2",
+      "architecture": "all",
+      "size": 335872
+    },
+    {
+      "type": "deb",
+      "name": "gstreamer1.0-plugins-base",
+      "version": "1.28.2-1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 2595840
+    },
+    {
+      "type": "deb",
+      "name": "gstreamer1.0-plugins-good",
+      "version": "1.28.2-2ubuntu0.4",
+      "architecture": "amd64",
+      "size": 7737344
+    },
+    {
+      "type": "deb",
+      "name": "gzip",
+      "version": "1.14-1~exp2ubuntu1.1",
+      "architecture": "amd64",
+      "size": 217088
+    },
+    {
+      "type": "deb",
+      "name": "hostname",
+      "version": "3.25build1",
+      "architecture": "amd64",
+      "size": 51200
+    },
+    {
+      "type": "deb",
+      "name": "init-system-helpers",
+      "version": "1.69",
+      "architecture": "all",
+      "size": 136192
+    },
+    {
+      "type": "deb",
+      "name": "intel-microcode",
+      "version": "3.20260210.1ubuntu2",
+      "architecture": "amd64",
+      "size": 21451776
+    },
+    {
+      "type": "deb",
+      "name": "iproute2",
+      "version": "6.19.0-1ubuntu1.1",
+      "architecture": "amd64",
+      "size": 3335168
+    },
+    {
+      "type": "deb",
+      "name": "iputils-ping",
+      "version": "3:20250605-1ubuntu1",
+      "architecture": "amd64",
+      "size": 197632
+    },
+    {
+      "type": "deb",
+      "name": "iso-codes",
+      "version": "4.20.1-1",
+      "architecture": "all",
+      "size": 24597504
+    },
+    {
+      "type": "deb",
+      "name": "iucode-tool",
+      "version": "2.3.1-3build2",
+      "architecture": "amd64",
+      "size": 102400
+    },
+    {
+      "type": "deb",
+      "name": "kmod",
+      "version": "34.2-2ubuntu2",
+      "architecture": "amd64",
+      "size": 270336
+    },
+    {
+      "type": "deb",
+      "name": "labwc",
+      "version": "0.9.3-1",
+      "architecture": "amd64",
+      "size": 871424
+    },
+    {
+      "type": "deb",
+      "name": "less",
+      "version": "668-1build1",
+      "architecture": "amd64",
+      "size": 381952
+    },
+    {
+      "type": "deb",
+      "name": "libaa1",
+      "version": "1.4p5-51.1build1",
+      "architecture": "amd64",
+      "size": 155648
+    },
+    {
+      "type": "deb",
+      "name": "libaccountsservice0",
+      "version": "23.13.9-8ubuntu5.2",
+      "architecture": "amd64",
+      "size": 256000
+    },
+    {
+      "type": "deb",
+      "name": "libacl1",
+      "version": "2.3.2-2",
+      "architecture": "amd64",
+      "size": 75776
+    },
+    {
+      "type": "deb",
+      "name": "libaom3",
+      "version": "3.13.1-2ubuntu0.1",
+      "architecture": "amd64",
+      "size": 5560320
+    },
+    {
+      "type": "deb",
+      "name": "libapparmor1",
+      "version": "5.0.2-0ubuntu1~26.04.1",
+      "architecture": "amd64",
+      "size": 124928
+    },
+    {
+      "type": "deb",
+      "name": "libappstream5",
+      "version": "1.1.2-1",
+      "architecture": "amd64",
+      "size": 777216
+    },
+    {
+      "type": "deb",
+      "name": "libapt-pkg7.0",
+      "version": "3.2.1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 3787776
+    },
+    {
+      "type": "deb",
+      "name": "libarchive13t64",
+      "version": "3.8.5-1ubuntu2.3",
+      "architecture": "amd64",
+      "size": 970752
+    },
+    {
+      "type": "deb",
+      "name": "libasound2-data",
+      "version": "1.2.15.3-1ubuntu1.1",
+      "architecture": "all",
+      "size": 199680
+    },
+    {
+      "type": "deb",
+      "name": "libasound2t64",
+      "version": "1.2.15.3-1ubuntu1.1",
+      "architecture": "amd64",
+      "size": 1289216
+    },
+    {
+      "type": "deb",
+      "name": "libassuan9",
+      "version": "3.0.2-2build1",
+      "architecture": "amd64",
+      "size": 116736
+    },
+    {
+      "type": "deb",
+      "name": "libasyncns0",
+      "version": "0.8-7",
+      "architecture": "amd64",
+      "size": 49152
+    },
+    {
+      "type": "deb",
+      "name": "libatomic1",
+      "version": "16-20260322-1ubuntu1",
+      "architecture": "amd64",
+      "size": 50176
+    },
+    {
+      "type": "deb",
+      "name": "libattr1",
+      "version": "1:2.5.2-4ubuntu0.1",
+      "architecture": "amd64",
+      "size": 62464
+    },
+    {
+      "type": "deb",
+      "name": "libaudit-common",
+      "version": "1:4.1.2-1ubuntu0.1",
+      "architecture": "all",
+      "size": 17408
+    },
+    {
+      "type": "deb",
+      "name": "libaudit1",
+      "version": "1:4.1.2-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 199680
+    },
+    {
+      "type": "deb",
+      "name": "libavahi-client3",
+      "version": "0.8-18ubuntu1.1",
+      "architecture": "amd64",
+      "size": 124928
+    },
+    {
+      "type": "deb",
+      "name": "libavahi-common-data",
+      "version": "0.8-18ubuntu1.1",
+      "architecture": "amd64",
+      "size": 98304
+    },
+    {
+      "type": "deb",
+      "name": "libavahi-common3",
+      "version": "0.8-18ubuntu1.1",
+      "architecture": "amd64",
+      "size": 101376
+    },
+    {
+      "type": "deb",
+      "name": "libavahi-glib1",
+      "version": "0.8-18ubuntu1.1",
+      "architecture": "amd64",
+      "size": 61440
+    },
+    {
+      "type": "deb",
+      "name": "libavc1394-0",
+      "version": "0.5.4-5build4",
+      "architecture": "amd64",
+      "size": 62464
+    },
+    {
+      "type": "deb",
+      "name": "libblkid1",
+      "version": "2.41.3-3ubuntu2.2",
+      "architecture": "amd64",
+      "size": 306176
+    },
+    {
+      "type": "deb",
+      "name": "libbluetooth3",
+      "version": "5.85-4ubuntu0.4",
+      "architecture": "amd64",
+      "size": 240640
+    },
+    {
+      "type": "deb",
+      "name": "libbpf1",
+      "version": "1:1.6.3-1ubuntu1",
+      "architecture": "amd64",
+      "size": 470016
+    },
+    {
+      "type": "deb",
+      "name": "libbrotli1",
+      "version": "1.2.0-3ubuntu0.1",
+      "architecture": "amd64",
+      "size": 907264
+    },
+    {
+      "type": "deb",
+      "name": "libbsd0",
+      "version": "0.12.2-2build2",
+      "architecture": "amd64",
+      "size": 132096
+    },
+    {
+      "type": "deb",
+      "name": "libbz2-1.0",
+      "version": "1.0.8-6ubuntu0.1",
+      "architecture": "amd64",
+      "size": 100352
+    },
+    {
+      "type": "deb",
+      "name": "libc-bin",
+      "version": "2.43-2ubuntu2.7",
+      "architecture": "amd64",
+      "size": 2308096
+    },
+    {
+      "type": "deb",
+      "name": "libc-gconv-modules-extra",
+      "version": "2.43-2ubuntu2.7",
+      "architecture": "amd64",
+      "size": 8273920
+    },
+    {
+      "type": "deb",
+      "name": "libc6",
+      "version": "2.43-2ubuntu2.7",
+      "architecture": "amd64",
+      "size": 5938176
+    },
+    {
+      "type": "deb",
+      "name": "libcaca0",
+      "version": "0.99.beta20-6ubuntu2.1",
+      "architecture": "amd64",
+      "size": 897024
+    },
+    {
+      "type": "deb",
+      "name": "libcairo-gobject2",
+      "version": "1.18.4-3",
+      "architecture": "amd64",
+      "size": 197632
+    },
+    {
+      "type": "deb",
+      "name": "libcairo2",
+      "version": "1.18.4-3",
+      "architecture": "amd64",
+      "size": 1427456
+    },
+    {
+      "type": "deb",
+      "name": "libcap-ng0",
+      "version": "0.8.5-4build5",
+      "architecture": "amd64",
+      "size": 60416
+    },
+    {
+      "type": "deb",
+      "name": "libcap2",
+      "version": "1:2.75-10ubuntu2",
+      "architecture": "amd64",
+      "size": 95232
+    },
+    {
+      "type": "deb",
+      "name": "libcap2-bin",
+      "version": "1:2.75-10ubuntu2",
+      "architecture": "amd64",
+      "size": 136192
+    },
+    {
+      "type": "deb",
+      "name": "libcbor0.10",
+      "version": "0.10.2-2ubuntu3",
+      "architecture": "amd64",
+      "size": 87040
+    },
+    {
+      "type": "deb",
+      "name": "libcdparanoia0",
+      "version": "3.10.2+debian-14ubuntu2",
+      "architecture": "amd64",
+      "size": 138240
+    },
+    {
+      "type": "deb",
+      "name": "libcom-err2",
+      "version": "1.47.2-3ubuntu4",
+      "architecture": "amd64",
+      "size": 67584
+    },
+    {
+      "type": "deb",
+      "name": "libcomposefs1",
+      "version": "1.0.8-3",
+      "architecture": "amd64",
+      "size": 91136
+    },
+    {
+      "type": "deb",
+      "name": "libcrypt1",
+      "version": "1:4.5.1-1",
+      "architecture": "amd64",
+      "size": 249856
+    },
+    {
+      "type": "deb",
+      "name": "libcurl3t64-gnutls",
+      "version": "8.18.0-1ubuntu2.8",
+      "architecture": "amd64",
+      "size": 1024000
+    },
+    {
+      "type": "deb",
+      "name": "libcurl4t64",
+      "version": "8.18.0-1ubuntu2.8",
+      "architecture": "amd64",
+      "size": 1053696
+    },
+    {
+      "type": "deb",
+      "name": "libdatrie1",
+      "version": "0.2.14-1",
+      "architecture": "amd64",
+      "size": 54272
+    },
+    {
+      "type": "deb",
+      "name": "libdb5.3t64",
+      "version": "5.3.28+dfsg2-10ubuntu1",
+      "architecture": "amd64",
+      "size": 1860608
+    },
+    {
+      "type": "deb",
+      "name": "libdbus-1-3",
+      "version": "1.16.2-2ubuntu4",
+      "architecture": "amd64",
+      "size": 430080
+    },
+    {
+      "type": "deb",
+      "name": "libdconf1",
+      "version": "0.49.0-4",
+      "architecture": "amd64",
+      "size": 105472
+    },
+    {
+      "type": "deb",
+      "name": "libdebconfclient0",
+      "version": "0.280ubuntu1",
+      "architecture": "amd64",
+      "size": 39936
+    },
+    {
+      "type": "deb",
+      "name": "libdecor-0-0",
+      "version": "0.2.5-1",
+      "architecture": "amd64",
+      "size": 60416
+    },
+    {
+      "type": "deb",
+      "name": "libdisplay-info3",
+      "version": "0.3.0-1",
+      "architecture": "amd64",
+      "size": 266240
+    },
+    {
+      "type": "deb",
+      "name": "libdrm-amdgpu1",
+      "version": "2.4.131-1",
+      "architecture": "amd64",
+      "size": 73728
+    },
+    {
+      "type": "deb",
+      "name": "libdrm-common",
+      "version": "2.4.131-1",
+      "architecture": "all",
+      "size": 41984
+    },
+    {
+      "type": "deb",
+      "name": "libdrm-intel1",
+      "version": "2.4.131-1",
+      "architecture": "amd64",
+      "size": 177152
+    },
+    {
+      "type": "deb",
+      "name": "libdrm2",
+      "version": "2.4.131-1",
+      "architecture": "amd64",
+      "size": 121856
+    },
+    {
+      "type": "deb",
+      "name": "libduktape207",
+      "version": "2.7.0+tests-0ubuntu4",
+      "architecture": "amd64",
+      "size": 331776
+    },
+    {
+      "type": "deb",
+      "name": "libdv4t64",
+      "version": "1.0.0-17.1build2",
+      "architecture": "amd64",
+      "size": 169984
+    },
+    {
+      "type": "deb",
+      "name": "libedit2",
+      "version": "3.1-20251016-1",
+      "architecture": "amd64",
+      "size": 264192
+    },
+    {
+      "type": "deb",
+      "name": "libefiboot1t64",
+      "version": "39-2",
+      "architecture": "amd64",
+      "size": 124928
+    },
+    {
+      "type": "deb",
+      "name": "libefivar1t64",
+      "version": "39-2",
+      "architecture": "amd64",
+      "size": 223232
+    },
+    {
+      "type": "deb",
+      "name": "libegl-mesa0",
+      "version": "26.0.8-1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 477184
+    },
+    {
+      "type": "deb",
+      "name": "libegl1",
+      "version": "1.7.0-3",
+      "architecture": "amd64",
+      "size": 101376
+    },
+    {
+      "type": "deb",
+      "name": "libei1",
+      "version": "1.5.0-3",
+      "architecture": "amd64",
+      "size": 139264
+    },
+    {
+      "type": "deb",
+      "name": "libelf1t64",
+      "version": "0.194-4",
+      "architecture": "amd64",
+      "size": 212992
+    },
+    {
+      "type": "deb",
+      "name": "libepoxy0",
+      "version": "1.5.10-2build1",
+      "architecture": "amd64",
+      "size": 1334272
+    },
+    {
+      "type": "deb",
+      "name": "libevdev2",
+      "version": "1.13.6+dfsg-1",
+      "architecture": "amd64",
+      "size": 145408
+    },
+    {
+      "type": "deb",
+      "name": "libexpat1",
+      "version": "2.7.4-1ubuntu0.2",
+      "architecture": "amd64",
+      "size": 430080
+    },
+    {
+      "type": "deb",
+      "name": "libext2fs2t64",
+      "version": "1.47.2-3ubuntu4",
+      "architecture": "amd64",
+      "size": 564224
+    },
+    {
+      "type": "deb",
+      "name": "libfcft4t64",
+      "version": "3.3.2-1",
+      "architecture": "amd64",
+      "size": 160768
+    },
+    {
+      "type": "deb",
+      "name": "libfdisk1",
+      "version": "2.41.3-3ubuntu2.2",
+      "architecture": "amd64",
+      "size": 439296
+    },
+    {
+      "type": "deb",
+      "name": "libffi8",
+      "version": "3.5.2-4",
+      "architecture": "amd64",
+      "size": 89088
+    },
+    {
+      "type": "deb",
+      "name": "libfftw3-single3",
+      "version": "3.3.10-2fakesync1build3",
+      "architecture": "amd64",
+      "size": 2426880
+    },
+    {
+      "type": "deb",
+      "name": "libfido2-1",
+      "version": "1.16.0-2build1",
+      "architecture": "amd64",
+      "size": 251904
+    },
+    {
+      "type": "deb",
+      "name": "libflac14",
+      "version": "1.5.0+ds-5",
+      "architecture": "amd64",
+      "size": 448512
+    },
+    {
+      "type": "deb",
+      "name": "libfontconfig1",
+      "version": "2.17.1-3ubuntu1",
+      "architecture": "amd64",
+      "size": 366592
+    },
+    {
+      "type": "deb",
+      "name": "libfontenc1",
+      "version": "1:1.1.8-1build2",
+      "architecture": "amd64",
+      "size": 54272
+    },
+    {
+      "type": "deb",
+      "name": "libfreetype6",
+      "version": "2.14.2+dfsg-1ubuntu0.2",
+      "architecture": "amd64",
+      "size": 927744
+    },
+    {
+      "type": "deb",
+      "name": "libfribidi0",
+      "version": "1.0.16-5",
+      "architecture": "amd64",
+      "size": 147456
+    },
+    {
+      "type": "deb",
+      "name": "libfuse3-4",
+      "version": "3.18.2-1",
+      "architecture": "amd64",
+      "size": 320512
+    },
+    {
+      "type": "deb",
+      "name": "libfyaml0",
+      "version": "0.9.4-1",
+      "architecture": "amd64",
+      "size": 816128
+    },
+    {
+      "type": "deb",
+      "name": "libgbm1",
+      "version": "26.0.8-1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 210944
+    },
+    {
+      "type": "deb",
+      "name": "libgcc-s1",
+      "version": "16-20260322-1ubuntu1",
+      "architecture": "amd64",
+      "size": 205824
+    },
+    {
+      "type": "deb",
+      "name": "libgcrypt20",
+      "version": "1.12.0-2ubuntu1.1",
+      "architecture": "amd64",
+      "size": 1891328
+    },
+    {
+      "type": "deb",
+      "name": "libgdk-pixbuf-2.0-0",
+      "version": "2.44.5+dfsg-4ubuntu1",
+      "architecture": "amd64",
+      "size": 276480
+    },
+    {
+      "type": "deb",
+      "name": "libgdk-pixbuf2.0-common",
+      "version": "2.44.5+dfsg-4ubuntu1",
+      "architecture": "all",
+      "size": 45056
+    },
+    {
+      "type": "deb",
+      "name": "libgl1",
+      "version": "1.7.0-3",
+      "architecture": "amd64",
+      "size": 663552
+    },
+    {
+      "type": "deb",
+      "name": "libgl1-mesa-dri",
+      "version": "26.0.8-1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 293888
+    },
+    {
+      "type": "deb",
+      "name": "libgles2",
+      "version": "1.7.0-3",
+      "architecture": "amd64",
+      "size": 107520
+    },
+    {
+      "type": "deb",
+      "name": "libglib2.0-0t64",
+      "version": "2.88.0-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 4433920
+    },
+    {
+      "type": "deb",
+      "name": "libglvnd0",
+      "version": "1.7.0-3",
+      "architecture": "amd64",
+      "size": 745472
+    },
+    {
+      "type": "deb",
+      "name": "libglx-mesa0",
+      "version": "26.0.8-1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 433152
+    },
+    {
+      "type": "deb",
+      "name": "libglx0",
+      "version": "1.7.0-3",
+      "architecture": "amd64",
+      "size": 165888
+    },
+    {
+      "type": "deb",
+      "name": "libglycin-2-0",
+      "version": "2.1.5+ds-0ubuntu0.2",
+      "architecture": "amd64",
+      "size": 4194304
+    },
+    {
+      "type": "deb",
+      "name": "libgmp10",
+      "version": "2:6.3.0+dfsg-5ubuntu2",
+      "architecture": "amd64",
+      "size": 565248
+    },
+    {
+      "type": "deb",
+      "name": "libgnutls30t64",
+      "version": "3.8.12-2ubuntu1.1",
+      "architecture": "amd64",
+      "size": 2506752
+    },
+    {
+      "type": "deb",
+      "name": "libgomp1",
+      "version": "16-20260322-1ubuntu1",
+      "architecture": "amd64",
+      "size": 415744
+    },
+    {
+      "type": "deb",
+      "name": "libgpg-error0",
+      "version": "1.58-2",
+      "architecture": "amd64",
+      "size": 224256
+    },
+    {
+      "type": "deb",
+      "name": "libgpgme45",
+      "version": "2.0.1-2build1",
+      "architecture": "amd64",
+      "size": 373760
+    },
+    {
+      "type": "deb",
+      "name": "libgpm2",
+      "version": "1.20.7-12build1",
+      "architecture": "amd64",
+      "size": 45056
+    },
+    {
+      "type": "deb",
+      "name": "libgraphite2-3",
+      "version": "1.3.14-11ubuntu1.1",
+      "architecture": "amd64",
+      "size": 175104
+    },
+    {
+      "type": "deb",
+      "name": "libgssapi-krb5-2",
+      "version": "1.22.1-2ubuntu4.1",
+      "architecture": "amd64",
+      "size": 451584
+    },
+    {
+      "type": "deb",
+      "name": "libgstreamer-plugins-base1.0-0",
+      "version": "1.28.2-1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 3055616
+    },
+    {
+      "type": "deb",
+      "name": "libgstreamer1.0-0",
+      "version": "1.28.2-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 3710976
+    },
+    {
+      "type": "deb",
+      "name": "libgudev-1.0-0",
+      "version": "1:238-7build1",
+      "architecture": "amd64",
+      "size": 70656
+    },
+    {
+      "type": "deb",
+      "name": "libharfbuzz0b",
+      "version": "12.3.2-2",
+      "architecture": "amd64",
+      "size": 1282048
+    },
+    {
+      "type": "deb",
+      "name": "libheif-plugin-aomdec",
+      "version": "1.21.2-3ubuntu0.7",
+      "architecture": "amd64",
+      "size": 50176
+    },
+    {
+      "type": "deb",
+      "name": "libheif1",
+      "version": "1.21.2-3ubuntu0.7",
+      "architecture": "amd64",
+      "size": 1702912
+    },
+    {
+      "type": "deb",
+      "name": "libhogweed6t64",
+      "version": "3.10.2-1",
+      "architecture": "amd64",
+      "size": 358400
+    },
+    {
+      "type": "deb",
+      "name": "libhwy1t64",
+      "version": "1.3.0-2",
+      "architecture": "amd64",
+      "size": 5917696
+    },
+    {
+      "type": "deb",
+      "name": "libice6",
+      "version": "2:1.1.1-1build1",
+      "architecture": "amd64",
+      "size": 116736
+    },
+    {
+      "type": "deb",
+      "name": "libidn2-0",
+      "version": "2.3.8-4build1",
+      "architecture": "amd64",
+      "size": 233472
+    },
+    {
+      "type": "deb",
+      "name": "libiec61883-0",
+      "version": "1.2.0-8",
+      "architecture": "amd64",
+      "size": 86016
+    },
+    {
+      "type": "deb",
+      "name": "libinput-bin",
+      "version": "1.31.1-1ubuntu1.2",
+      "architecture": "amd64",
+      "size": 163840
+    },
+    {
+      "type": "deb",
+      "name": "libinput10",
+      "version": "1.31.1-1ubuntu1.2",
+      "architecture": "amd64",
+      "size": 451584
+    },
+    {
+      "type": "deb",
+      "name": "libjansson4",
+      "version": "2.14-2build4",
+      "architecture": "amd64",
+      "size": 97280
+    },
+    {
+      "type": "deb",
+      "name": "libjpeg-turbo8",
+      "version": "2.1.5-4ubuntu4",
+      "architecture": "amd64",
+      "size": 679936
+    },
+    {
+      "type": "deb",
+      "name": "libjpeg8",
+      "version": "8c-2ubuntu12",
+      "architecture": "amd64",
+      "size": 9216
+    },
+    {
+      "type": "deb",
+      "name": "libjson-c5",
+      "version": "0.18+ds-3",
+      "architecture": "amd64",
+      "size": 105472
+    },
+    {
+      "type": "deb",
+      "name": "libjson-glib-1.0-0",
+      "version": "1.10.8+ds-2",
+      "architecture": "amd64",
+      "size": 216064
+    },
+    {
+      "type": "deb",
+      "name": "libjson-glib-1.0-common",
+      "version": "1.10.8+ds-2",
+      "architecture": "all",
+      "size": 40960
+    },
+    {
+      "type": "deb",
+      "name": "libjxl0.11",
+      "version": "0.11.1-6ubuntu4.2",
+      "architecture": "amd64",
+      "size": 4192256
+    },
+    {
+      "type": "deb",
+      "name": "libk5crypto3",
+      "version": "1.22.1-2ubuntu4.1",
+      "architecture": "amd64",
+      "size": 263168
+    },
+    {
+      "type": "deb",
+      "name": "libkeyutils1",
+      "version": "1.6.3-6ubuntu3",
+      "architecture": "amd64",
+      "size": 43008
+    },
+    {
+      "type": "deb",
+      "name": "libkmod2",
+      "version": "34.2-2ubuntu2",
+      "architecture": "amd64",
+      "size": 149504
+    },
+    {
+      "type": "deb",
+      "name": "libkrb5-3",
+      "version": "1.22.1-2ubuntu4.1",
+      "architecture": "amd64",
+      "size": 1075200
+    },
+    {
+      "type": "deb",
+      "name": "libkrb5support0",
+      "version": "1.22.1-2ubuntu4.1",
+      "architecture": "amd64",
+      "size": 139264
+    },
+    {
+      "type": "deb",
+      "name": "libksba8",
+      "version": "1.6.7-2build1",
+      "architecture": "amd64",
+      "size": 318464
+    },
+    {
+      "type": "deb",
+      "name": "liblcms2-2",
+      "version": "2.17-1ubuntu0.2",
+      "architecture": "amd64",
+      "size": 455680
+    },
+    {
+      "type": "deb",
+      "name": "libldap-common",
+      "version": "2.6.10+dfsg-1ubuntu5",
+      "architecture": "all",
+      "size": 101376
+    },
+    {
+      "type": "deb",
+      "name": "libldap2",
+      "version": "2.6.10+dfsg-1ubuntu5",
+      "architecture": "amd64",
+      "size": 581632
+    },
+    {
+      "type": "deb",
+      "name": "libliftoff0",
+      "version": "0.5.0-1.1build1",
+      "architecture": "amd64",
+      "size": 52224
+    },
+    {
+      "type": "deb",
+      "name": "libllvm21",
+      "version": "1:21.1.8-6ubuntu1",
+      "architecture": "amd64",
+      "size": 138606592
+    },
+    {
+      "type": "deb",
+      "name": "liblua5.4-0",
+      "version": "5.4.8-1build1",
+      "architecture": "amd64",
+      "size": 583680
+    },
+    {
+      "type": "deb",
+      "name": "liblz4-1",
+      "version": "1.10.0-8",
+      "architecture": "amd64",
+      "size": 189440
+    },
+    {
+      "type": "deb",
+      "name": "liblzma5",
+      "version": "5.8.3-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 484352
+    },
+    {
+      "type": "deb",
+      "name": "liblzo2-2",
+      "version": "2.10-3build2",
+      "architecture": "amd64",
+      "size": 181248
+    },
+    {
+      "type": "deb",
+      "name": "libmagic-mgc",
+      "version": "1:5.46-5build2",
+      "architecture": "amd64",
+      "size": 10378240
+    },
+    {
+      "type": "deb",
+      "name": "libmagic1t64",
+      "version": "1:5.46-5build2",
+      "architecture": "amd64",
+      "size": 230400
+    },
+    {
+      "type": "deb",
+      "name": "libmalcontent-0-0",
+      "version": "0.14.0-0ubuntu1.2",
+      "architecture": "amd64",
+      "size": 139264
+    },
+    {
+      "type": "deb",
+      "name": "libmalcontent-common",
+      "version": "0.14.0-0ubuntu1.2",
+      "architecture": "all",
+      "size": 63488
+    },
+    {
+      "type": "deb",
+      "name": "libmd0",
+      "version": "1.1.0-2build4",
+      "architecture": "amd64",
+      "size": 80896
+    },
+    {
+      "type": "deb",
+      "name": "libmm-glib0",
+      "version": "1.25.95-1ubuntu1",
+      "architecture": "amd64",
+      "size": 1354752
+    },
+    {
+      "type": "deb",
+      "name": "libmnl0",
+      "version": "1.0.5-3build1",
+      "architecture": "amd64",
+      "size": 48128
+    },
+    {
+      "type": "deb",
+      "name": "libmount1",
+      "version": "2.41.3-3ubuntu2.2",
+      "architecture": "amd64",
+      "size": 411648
+    },
+    {
+      "type": "deb",
+      "name": "libmp3lame0",
+      "version": "3.101~svn6525+dfsg-2ubuntu0.1",
+      "architecture": "amd64",
+      "size": 276480
+    },
+    {
+      "type": "deb",
+      "name": "libmpg123-0t64",
+      "version": "1.33.3-2",
+      "architecture": "amd64",
+      "size": 413696
+    },
+    {
+      "type": "deb",
+      "name": "libmtdev1t64",
+      "version": "1.1.7-1build1",
+      "architecture": "amd64",
+      "size": 49152
+    },
+    {
+      "type": "deb",
+      "name": "libncurses6",
+      "version": "6.6+20251231-1",
+      "architecture": "amd64",
+      "size": 345088
+    },
+    {
+      "type": "deb",
+      "name": "libncursesw6",
+      "version": "6.6+20251231-1",
+      "architecture": "amd64",
+      "size": 436224
+    },
+    {
+      "type": "deb",
+      "name": "libndp0",
+      "version": "1.9-1build1",
+      "architecture": "amd64",
+      "size": 50176
+    },
+    {
+      "type": "deb",
+      "name": "libnetplan1",
+      "version": "1.2-1ubuntu5.1",
+      "architecture": "amd64",
+      "size": 392192
+    },
+    {
+      "type": "deb",
+      "name": "libnettle8t64",
+      "version": "3.10.2-1",
+      "architecture": "amd64",
+      "size": 448512
+    },
+    {
+      "type": "deb",
+      "name": "libnewt0.52",
+      "version": "0.52.25-1ubuntu3",
+      "architecture": "amd64",
+      "size": 184320
+    },
+    {
+      "type": "deb",
+      "name": "libnghttp2-14",
+      "version": "1.68.0-2ubuntu0.2",
+      "architecture": "amd64",
+      "size": 200704
+    },
+    {
+      "type": "deb",
+      "name": "libnl-3-200",
+      "version": "3.12.0-2",
+      "architecture": "amd64",
+      "size": 175104
+    },
+    {
+      "type": "deb",
+      "name": "libnl-genl-3-200",
+      "version": "3.12.0-2",
+      "architecture": "amd64",
+      "size": 53248
+    },
+    {
+      "type": "deb",
+      "name": "libnl-route-3-200",
+      "version": "3.12.0-2",
+      "architecture": "amd64",
+      "size": 700416
+    },
+    {
+      "type": "deb",
+      "name": "libnm0",
+      "version": "1.54.3-2ubuntu3.1",
+      "architecture": "amd64",
+      "size": 1611776
+    },
+    {
+      "type": "deb",
+      "name": "libnpth0t64",
+      "version": "1.8-3build1",
+      "architecture": "amd64",
+      "size": 44032
+    },
+    {
+      "type": "deb",
+      "name": "liboeffis1",
+      "version": "1.5.0-3",
+      "architecture": "amd64",
+      "size": 49152
+    },
+    {
+      "type": "deb",
+      "name": "libogg0",
+      "version": "1.3.6-2",
+      "architecture": "amd64",
+      "size": 61440
+    },
+    {
+      "type": "deb",
+      "name": "libopus0",
+      "version": "1.6.1-1",
+      "architecture": "amd64",
+      "size": 4313088
+    },
+    {
+      "type": "deb",
+      "name": "liborc-0.4-0t64",
+      "version": "1:0.4.42-2",
+      "architecture": "amd64",
+      "size": 1152000
+    },
+    {
+      "type": "deb",
+      "name": "libostree-1-1",
+      "version": "2025.7-3build1",
+      "architecture": "amd64",
+      "size": 966656
+    },
+    {
+      "type": "deb",
+      "name": "libp11-kit0",
+      "version": "0.26.2-2",
+      "architecture": "amd64",
+      "size": 1977344
+    },
+    {
+      "type": "deb",
+      "name": "libpam-modules",
+      "version": "1.7.0-5ubuntu3.2",
+      "architecture": "amd64",
+      "size": 1075200
+    },
+    {
+      "type": "deb",
+      "name": "libpam-modules-bin",
+      "version": "1.7.0-5ubuntu3.2",
+      "architecture": "amd64",
+      "size": 252928
+    },
+    {
+      "type": "deb",
+      "name": "libpam-runtime",
+      "version": "1.7.0-5ubuntu3.2",
+      "architecture": "all",
+      "size": 536576
+    },
+    {
+      "type": "deb",
+      "name": "libpam-systemd",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 743424
+    },
+    {
+      "type": "deb",
+      "name": "libpam0g",
+      "version": "1.7.0-5ubuntu3.2",
+      "architecture": "amd64",
+      "size": 211968
+    },
+    {
+      "type": "deb",
+      "name": "libpango-1.0-0",
+      "version": "1.57.0-1",
+      "architecture": "amd64",
+      "size": 569344
+    },
+    {
+      "type": "deb",
+      "name": "libpangocairo-1.0-0",
+      "version": "1.57.0-1",
+      "architecture": "amd64",
+      "size": 111616
+    },
+    {
+      "type": "deb",
+      "name": "libpangoft2-1.0-0",
+      "version": "1.57.0-1",
+      "architecture": "amd64",
+      "size": 176128
+    },
+    {
+      "type": "deb",
+      "name": "libpci3",
+      "version": "1:3.14.0-1build2",
+      "architecture": "amd64",
+      "size": 119808
+    },
+    {
+      "type": "deb",
+      "name": "libpciaccess0",
+      "version": "0.18.1-1ubuntu4.1",
+      "architecture": "amd64",
+      "size": 61440
+    },
+    {
+      "type": "deb",
+      "name": "libpcre2-8-0",
+      "version": "10.46-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 726016
+    },
+    {
+      "type": "deb",
+      "name": "libpcsclite1",
+      "version": "2.4.1-1",
+      "architecture": "amd64",
+      "size": 78848
+    },
+    {
+      "type": "deb",
+      "name": "libpipewire-0.3-0t64",
+      "version": "1.6.2-1ubuntu1.2",
+      "architecture": "amd64",
+      "size": 973824
+    },
+    {
+      "type": "deb",
+      "name": "libpipewire-0.3-modules",
+      "version": "1.6.2-1ubuntu1.2",
+      "architecture": "amd64",
+      "size": 4323328
+    },
+    {
+      "type": "deb",
+      "name": "libpixman-1-0",
+      "version": "0.46.4-1",
+      "architecture": "amd64",
+      "size": 775168
+    },
+    {
+      "type": "deb",
+      "name": "libpng16-16t64",
+      "version": "1.6.57-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 355328
+    },
+    {
+      "type": "deb",
+      "name": "libpolkit-agent-1-0",
+      "version": "127-2ubuntu1.1",
+      "architecture": "amd64",
+      "size": 71680
+    },
+    {
+      "type": "deb",
+      "name": "libpolkit-gobject-1-0",
+      "version": "127-2ubuntu1.1",
+      "architecture": "amd64",
+      "size": 164864
+    },
+    {
+      "type": "deb",
+      "name": "libpopt0",
+      "version": "1.19+dfsg-2build1",
+      "architecture": "amd64",
+      "size": 126976
+    },
+    {
+      "type": "deb",
+      "name": "libproc2-0",
+      "version": "2:4.0.4-9ubuntu1",
+      "architecture": "amd64",
+      "size": 246784
+    },
+    {
+      "type": "deb",
+      "name": "libproxy1v5",
+      "version": "0.5.12-1",
+      "architecture": "amd64",
+      "size": 103424
+    },
+    {
+      "type": "deb",
+      "name": "libpsl5t64",
+      "version": "0.21.2-1.1build2",
+      "architecture": "amd64",
+      "size": 110592
+    },
+    {
+      "type": "deb",
+      "name": "libpulse0",
+      "version": "1:17.0+dfsg1-2ubuntu4",
+      "architecture": "amd64",
+      "size": 943104
+    },
+    {
+      "type": "deb",
+      "name": "libpython3-stdlib",
+      "version": "3.14.3-0ubuntu2",
+      "architecture": "amd64",
+      "size": 26624
+    },
+    {
+      "type": "deb",
+      "name": "libpython3.14-minimal",
+      "version": "3.14.4-1ubuntu0.2",
+      "architecture": "amd64",
+      "size": 5778432
+    },
+    {
+      "type": "deb",
+      "name": "libpython3.14-stdlib",
+      "version": "3.14.4-1ubuntu0.2",
+      "architecture": "amd64",
+      "size": 10362880
+    },
+    {
+      "type": "deb",
+      "name": "libraw1394-11",
+      "version": "2.1.2-2build4",
+      "architecture": "amd64",
+      "size": 84992
+    },
+    {
+      "type": "deb",
+      "name": "libreadline8t64",
+      "version": "8.3-4",
+      "architecture": "amd64",
+      "size": 505856
+    },
+    {
+      "type": "deb",
+      "name": "libroc0.4",
+      "version": "0.4.0+dfsg-5ubuntu3.1",
+      "architecture": "amd64",
+      "size": 1359872
+    },
+    {
+      "type": "deb",
+      "name": "librsvg2-2",
+      "version": "2.61.3+dfsg-3ubuntu0.1",
+      "architecture": "amd64",
+      "size": 5734400
+    },
+    {
+      "type": "deb",
+      "name": "librtmp1",
+      "version": "2.4+20151223.gitfa8646d.1-3",
+      "architecture": "amd64",
+      "size": 144384
+    },
+    {
+      "type": "deb",
+      "name": "libsasl2-2",
+      "version": "2.1.28+dfsg1-9ubuntu3",
+      "architecture": "amd64",
+      "size": 155648
+    },
+    {
+      "type": "deb",
+      "name": "libsasl2-modules-db",
+      "version": "2.1.28+dfsg1-9ubuntu3",
+      "architecture": "amd64",
+      "size": 76800
+    },
+    {
+      "type": "deb",
+      "name": "libseat1",
+      "version": "0.9.2-2",
+      "architecture": "amd64",
+      "size": 84992
+    },
+    {
+      "type": "deb",
+      "name": "libseccomp2",
+      "version": "2.6.0-2ubuntu5",
+      "architecture": "amd64",
+      "size": 204800
+    },
+    {
+      "type": "deb",
+      "name": "libselinux1",
+      "version": "3.9-4build1",
+      "architecture": "amd64",
+      "size": 233472
+    },
+    {
+      "type": "deb",
+      "name": "libsemanage-common",
+      "version": "3.9-1build1",
+      "architecture": "all",
+      "size": 20480
+    },
+    {
+      "type": "deb",
+      "name": "libsemanage2",
+      "version": "3.9-1build1",
+      "architecture": "amd64",
+      "size": 312320
+    },
+    {
+      "type": "deb",
+      "name": "libsensors-config",
+      "version": "1:3.6.2-2build1",
+      "architecture": "all",
+      "size": 28672
+    },
+    {
+      "type": "deb",
+      "name": "libsensors5",
+      "version": "1:3.6.2-2build1",
+      "architecture": "amd64",
+      "size": 90112
+    },
+    {
+      "type": "deb",
+      "name": "libsepol2",
+      "version": "3.9-2",
+      "architecture": "amd64",
+      "size": 842752
+    },
+    {
+      "type": "deb",
+      "name": "libsfdo0",
+      "version": "0.1.4-1",
+      "architecture": "amd64",
+      "size": 136192
+    },
+    {
+      "type": "deb",
+      "name": "libsharpyuv0",
+      "version": "1.5.0-0.1build1",
+      "architecture": "amd64",
+      "size": 49152
+    },
+    {
+      "type": "deb",
+      "name": "libshout3",
+      "version": "2.4.6-1build3",
+      "architecture": "amd64",
+      "size": 150528
+    },
+    {
+      "type": "deb",
+      "name": "libslang2",
+      "version": "2.3.3-5build1",
+      "architecture": "amd64",
+      "size": 2449408
+    },
+    {
+      "type": "deb",
+      "name": "libsm6",
+      "version": "2:1.2.6-1build1",
+      "architecture": "amd64",
+      "size": 58368
+    },
+    {
+      "type": "deb",
+      "name": "libsmartcols1",
+      "version": "2.41.3-3ubuntu2.2",
+      "architecture": "amd64",
+      "size": 223232
+    },
+    {
+      "type": "deb",
+      "name": "libsnapd-glib-2-1",
+      "version": "1.72-0ubuntu3",
+      "architecture": "amd64",
+      "size": 447488
+    },
+    {
+      "type": "deb",
+      "name": "libsndfile1",
+      "version": "1.2.2-4",
+      "architecture": "amd64",
+      "size": 616448
+    },
+    {
+      "type": "deb",
+      "name": "libsoup-3.0-0",
+      "version": "3.6.6-1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 739328
+    },
+    {
+      "type": "deb",
+      "name": "libsoup-3.0-common",
+      "version": "3.6.6-1ubuntu0.3",
+      "architecture": "all",
+      "size": 45056
+    },
+    {
+      "type": "deb",
+      "name": "libspa-0.2-modules",
+      "version": "1.6.2-1ubuntu1.2",
+      "architecture": "amd64",
+      "size": 4066304
+    },
+    {
+      "type": "deb",
+      "name": "libspeex1",
+      "version": "1.2.1-3build1",
+      "architecture": "amd64",
+      "size": 148480
+    },
+    {
+      "type": "deb",
+      "name": "libspeexdsp1",
+      "version": "1.2.1-3build1",
+      "architecture": "amd64",
+      "size": 104448
+    },
+    {
+      "type": "deb",
+      "name": "libsqlite3-0",
+      "version": "3.46.1-9ubuntu0.3",
+      "architecture": "amd64",
+      "size": 1826816
+    },
+    {
+      "type": "deb",
+      "name": "libssh2-1t64",
+      "version": "1.11.1-1ubuntu0.26.04.4",
+      "architecture": "amd64",
+      "size": 467968
+    },
+    {
+      "type": "deb",
+      "name": "libssl3t64",
+      "version": "3.5.5-1ubuntu3.7",
+      "architecture": "amd64",
+      "size": 8182784
+    },
+    {
+      "type": "deb",
+      "name": "libstdc++6",
+      "version": "16-20260322-1ubuntu1",
+      "architecture": "amd64",
+      "size": 3334144
+    },
+    {
+      "type": "deb",
+      "name": "libstemmer0d",
+      "version": "3.0.1-1",
+      "architecture": "amd64",
+      "size": 935936
+    },
+    {
+      "type": "deb",
+      "name": "libsystemd-shared",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 7588864
+    },
+    {
+      "type": "deb",
+      "name": "libsystemd0",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 1238016
+    },
+    {
+      "type": "deb",
+      "name": "libtag2",
+      "version": "2.2.1-3",
+      "architecture": "amd64",
+      "size": 1519616
+    },
+    {
+      "type": "deb",
+      "name": "libtasn1-6",
+      "version": "4.21.0-2",
+      "architecture": "amd64",
+      "size": 130048
+    },
+    {
+      "type": "deb",
+      "name": "libteamdctl0",
+      "version": "1.31-1build4",
+      "architecture": "amd64",
+      "size": 45056
+    },
+    {
+      "type": "deb",
+      "name": "libthai-data",
+      "version": "0.1.30-1",
+      "architecture": "all",
+      "size": 608256
+    },
+    {
+      "type": "deb",
+      "name": "libthai0",
+      "version": "0.1.30-1",
+      "architecture": "amd64",
+      "size": 99328
+    },
+    {
+      "type": "deb",
+      "name": "libtheora1",
+      "version": "1.2.0+dfsg-6",
+      "architecture": "amd64",
+      "size": 295936
+    },
+    {
+      "type": "deb",
+      "name": "libtheoradec2",
+      "version": "1.2.0+dfsg-6",
+      "architecture": "amd64",
+      "size": 128000
+    },
+    {
+      "type": "deb",
+      "name": "libtheoraenc2",
+      "version": "1.2.0+dfsg-6",
+      "architecture": "amd64",
+      "size": 233472
+    },
+    {
+      "type": "deb",
+      "name": "libtinfo6",
+      "version": "6.6+20251231-1",
+      "architecture": "amd64",
+      "size": 582656
+    },
+    {
+      "type": "deb",
+      "name": "libtirpc-common",
+      "version": "1.3.7-0.1",
+      "architecture": "all",
+      "size": 27648
+    },
+    {
+      "type": "deb",
+      "name": "libtirpc3t64",
+      "version": "1.3.7-0.1",
+      "architecture": "amd64",
+      "size": 224256
+    },
+    {
+      "type": "deb",
+      "name": "libtwolame0",
+      "version": "0.4.0-2build4",
+      "architecture": "amd64",
+      "size": 154624
+    },
+    {
+      "type": "deb",
+      "name": "libudev1",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 362496
+    },
+    {
+      "type": "deb",
+      "name": "libunistring5",
+      "version": "1.3-2build1",
+      "architecture": "amd64",
+      "size": 2130944
+    },
+    {
+      "type": "deb",
+      "name": "libusb-1.0-0",
+      "version": "2:1.0.29-2build1",
+      "architecture": "amd64",
+      "size": 154624
+    },
+    {
+      "type": "deb",
+      "name": "libutf8proc3",
+      "version": "2.10.0-2",
+      "architecture": "amd64",
+      "size": 382976
+    },
+    {
+      "type": "deb",
+      "name": "libuuid1",
+      "version": "2.41.3-3ubuntu2.2",
+      "architecture": "amd64",
+      "size": 93184
+    },
+    {
+      "type": "deb",
+      "name": "libuv1t64",
+      "version": "1.51.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 281600
+    },
+    {
+      "type": "deb",
+      "name": "libv4l-0t64",
+      "version": "1.32.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 676864
+    },
+    {
+      "type": "deb",
+      "name": "libv4lconvert0t64",
+      "version": "1.32.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 334848
+    },
+    {
+      "type": "deb",
+      "name": "libvisual-0.4-0",
+      "version": "0.4.2-4",
+      "architecture": "amd64",
+      "size": 421888
+    },
+    {
+      "type": "deb",
+      "name": "libvorbis0a",
+      "version": "1.3.7-3build2",
+      "architecture": "amd64",
+      "size": 212992
+    },
+    {
+      "type": "deb",
+      "name": "libvorbisenc2",
+      "version": "1.3.7-3build2",
+      "architecture": "amd64",
+      "size": 714752
+    },
+    {
+      "type": "deb",
+      "name": "libvpx12",
+      "version": "1.16.0-3",
+      "architecture": "amd64",
+      "size": 3921920
+    },
+    {
+      "type": "deb",
+      "name": "libvulkan1",
+      "version": "1.4.341.0-1",
+      "architecture": "amd64",
+      "size": 621568
+    },
+    {
+      "type": "deb",
+      "name": "libwacom-common",
+      "version": "2.18.0-1",
+      "architecture": "all",
+      "size": 1959936
+    },
+    {
+      "type": "deb",
+      "name": "libwacom9",
+      "version": "2.18.0-1",
+      "architecture": "amd64",
+      "size": 84992
+    },
+    {
+      "type": "deb",
+      "name": "libwavpack1",
+      "version": "5.9.0-1",
+      "architecture": "amd64",
+      "size": 225280
+    },
+    {
+      "type": "deb",
+      "name": "libwayland-client0",
+      "version": "1.24.0-2",
+      "architecture": "amd64",
+      "size": 92160
+    },
+    {
+      "type": "deb",
+      "name": "libwayland-cursor0",
+      "version": "1.24.0-2",
+      "architecture": "amd64",
+      "size": 53248
+    },
+    {
+      "type": "deb",
+      "name": "libwayland-server0",
+      "version": "1.24.0-2",
+      "architecture": "amd64",
+      "size": 111616
+    },
+    {
+      "type": "deb",
+      "name": "libwebrtc-audio-processing-1-3",
+      "version": "1.3-3build2",
+      "architecture": "amd64",
+      "size": 1055744
+    },
+    {
+      "type": "deb",
+      "name": "libwireplumber-0.5-0",
+      "version": "0.5.13-1ubuntu1.1",
+      "architecture": "amd64",
+      "size": 1308672
+    },
+    {
+      "type": "deb",
+      "name": "libwlroots-0.19",
+      "version": "0.19.2-1",
+      "architecture": "amd64",
+      "size": 1378304
+    },
+    {
+      "type": "deb",
+      "name": "libx11-6",
+      "version": "2:1.8.13-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 1415168
+    },
+    {
+      "type": "deb",
+      "name": "libx11-data",
+      "version": "2:1.8.13-1ubuntu0.1",
+      "architecture": "all",
+      "size": 1376256
+    },
+    {
+      "type": "deb",
+      "name": "libx11-xcb1",
+      "version": "2:1.8.13-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 75776
+    },
+    {
+      "type": "deb",
+      "name": "libxau6",
+      "version": "1:1.0.11-1build2",
+      "architecture": "amd64",
+      "size": 33792
+    },
+    {
+      "type": "deb",
+      "name": "libxaw7",
+      "version": "2:1.0.16-1build1",
+      "architecture": "amd64",
+      "size": 510976
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-composite0",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 31744
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-dri3-0",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 41984
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-errors0",
+      "version": "1.0.1-4build1",
+      "architecture": "amd64",
+      "size": 58368
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-ewmh2",
+      "version": "0.4.2-1build1",
+      "architecture": "amd64",
+      "size": 71680
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-glx0",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 152576
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-icccm4",
+      "version": "0.4.2-1build1",
+      "architecture": "amd64",
+      "size": 41984
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-present0",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 32768
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-randr0",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 99328
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-render-util0",
+      "version": "0.3.10-1build1",
+      "architecture": "amd64",
+      "size": 44032
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-render0",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 82944
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-res0",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 37888
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-shm0",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 31744
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-sync1",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 55296
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-xfixes0",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 57344
+    },
+    {
+      "type": "deb",
+      "name": "libxcb-xinput0",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 157696
+    },
+    {
+      "type": "deb",
+      "name": "libxcb1",
+      "version": "1.17.0-2ubuntu1",
+      "architecture": "amd64",
+      "size": 209920
+    },
+    {
+      "type": "deb",
+      "name": "libxcvt0",
+      "version": "0.1.3-1build1",
+      "architecture": "amd64",
+      "size": 31744
+    },
+    {
+      "type": "deb",
+      "name": "libxdamage1",
+      "version": "1:1.1.7-1",
+      "architecture": "amd64",
+      "size": 29696
+    },
+    {
+      "type": "deb",
+      "name": "libxdmcp6",
+      "version": "1:1.1.5-2",
+      "architecture": "amd64",
+      "size": 41984
+    },
+    {
+      "type": "deb",
+      "name": "libxext6",
+      "version": "2:1.3.4-1build3",
+      "architecture": "amd64",
+      "size": 105472
+    },
+    {
+      "type": "deb",
+      "name": "libxfixes3",
+      "version": "1:6.0.0-2build2",
+      "architecture": "amd64",
+      "size": 45056
+    },
+    {
+      "type": "deb",
+      "name": "libxfont2",
+      "version": "1:2.0.6-2ubuntu0.2",
+      "architecture": "amd64",
+      "size": 218112
+    },
+    {
+      "type": "deb",
+      "name": "libxkbcommon0",
+      "version": "1.13.1-1",
+      "architecture": "amd64",
+      "size": 406528
+    },
+    {
+      "type": "deb",
+      "name": "libxkbfile1",
+      "version": "1:1.1.0-1build5",
+      "architecture": "amd64",
+      "size": 176128
+    },
+    {
+      "type": "deb",
+      "name": "libxml2-16",
+      "version": "2.15.2+dfsg-0.1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 1603584
+    },
+    {
+      "type": "deb",
+      "name": "libxmlb2",
+      "version": "0.3.24-2",
+      "architecture": "amd64",
+      "size": 196608
+    },
+    {
+      "type": "deb",
+      "name": "libxmu6",
+      "version": "2:1.1.3-4",
+      "architecture": "amd64",
+      "size": 128000
+    },
+    {
+      "type": "deb",
+      "name": "libxpm4",
+      "version": "1:3.5.17-1ubuntu0.26.04.2",
+      "architecture": "amd64",
+      "size": 97280
+    },
+    {
+      "type": "deb",
+      "name": "libxrandr2",
+      "version": "2:1.5.4-1build1",
+      "architecture": "amd64",
+      "size": 67584
+    },
+    {
+      "type": "deb",
+      "name": "libxrender1",
+      "version": "1:0.9.12-1build1",
+      "architecture": "amd64",
+      "size": 59392
+    },
+    {
+      "type": "deb",
+      "name": "libxshmfence1",
+      "version": "1.3.3-1build1",
+      "architecture": "amd64",
+      "size": 30720
+    },
+    {
+      "type": "deb",
+      "name": "libxt6t64",
+      "version": "1:1.2.1-1.3build1",
+      "architecture": "amd64",
+      "size": 470016
+    },
+    {
+      "type": "deb",
+      "name": "libxtables12",
+      "version": "1.8.11-2ubuntu3",
+      "architecture": "amd64",
+      "size": 106496
+    },
+    {
+      "type": "deb",
+      "name": "libxtst6",
+      "version": "2:1.2.5-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 47104
+    },
+    {
+      "type": "deb",
+      "name": "libxxf86vm1",
+      "version": "1:1.1.4-2",
+      "architecture": "amd64",
+      "size": 38912
+    },
+    {
+      "type": "deb",
+      "name": "libxxhash0",
+      "version": "0.8.3-2build1",
+      "architecture": "amd64",
+      "size": 92160
+    },
+    {
+      "type": "deb",
+      "name": "libyaml-0-2",
+      "version": "0.2.5-2build3",
+      "architecture": "amd64",
+      "size": 151552
+    },
+    {
+      "type": "deb",
+      "name": "libzstd1",
+      "version": "1.5.7+dfsg-3",
+      "architecture": "amd64",
+      "size": 821248
+    },
+    {
+      "type": "deb",
+      "name": "linux-base",
+      "version": "4.15ubuntu5",
+      "architecture": "all",
+      "size": 157696
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware",
+      "version": "20260319.git217ca6e4.1ubuntu",
+      "architecture": "all",
+      "size": 8192
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-amd-graphics",
+      "version": "20260319.git217ca6e4-0ubuntu3.1",
+      "architecture": "all",
+      "size": 29493248
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-amd-misc",
+      "version": "20260319.git217ca6e4-0ubuntu1.1",
+      "architecture": "all",
+      "size": 573440
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-broadcom-wireless",
+      "version": "20260319.git217ca6e4-0ubuntu1.1",
+      "architecture": "all",
+      "size": 11188224
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-intel-graphics",
+      "version": "20260319.git217ca6e4-0ubuntu2.1",
+      "architecture": "all",
+      "size": 21944320
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-intel-misc",
+      "version": "20260319.git217ca6e4-0ubuntu1.2",
+      "architecture": "all",
+      "size": 10132480
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-intel-wireless",
+      "version": "20260319.git217ca6e4-0ubuntu2.1",
+      "architecture": "all",
+      "size": 102023168
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-marvell-prestera",
+      "version": "20260319.git217ca6e4-0ubuntu1.2",
+      "architecture": "all",
+      "size": 32891904
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-marvell-wireless",
+      "version": "20260319.git217ca6e4-0ubuntu1.1",
+      "architecture": "all",
+      "size": 7411712
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-mediatek",
+      "version": "20260319.git217ca6e4-0ubuntu1.2",
+      "architecture": "all",
+      "size": 27837440
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-mellanox-spectrum",
+      "version": "20260319.git217ca6e4-0ubuntu1.1",
+      "architecture": "all",
+      "size": 61863936
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-misc",
+      "version": "20260319.git217ca6e4-0ubuntu2.2",
+      "architecture": "all",
+      "size": 32355328
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-netronome",
+      "version": "20260319.git217ca6e4-0ubuntu1.1",
+      "architecture": "all",
+      "size": 5761024
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-nvidia-graphics",
+      "version": "20260319.git217ca6e4-0ubuntu1.1",
+      "architecture": "all",
+      "size": 108752896
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-qlogic",
+      "version": "20260319.git217ca6e4-0ubuntu1.1",
+      "architecture": "all",
+      "size": 7163904
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-qualcomm-graphics",
+      "version": "20260319.git217ca6e4-0ubuntu1.1",
+      "architecture": "all",
+      "size": 11015168
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-qualcomm-misc",
+      "version": "20260319.git217ca6e4-0ubuntu2.1",
+      "architecture": "all",
+      "size": 167313408
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-qualcomm-wireless",
+      "version": "20260319.git217ca6e4-0ubuntu1.2",
+      "architecture": "all",
+      "size": 48903168
+    },
+    {
+      "type": "deb",
+      "name": "linux-firmware-realtek",
+      "version": "20260319.git217ca6e4-0ubuntu1.2",
+      "architecture": "all",
+      "size": 7250944
+    },
+    {
+      "type": "deb",
+      "name": "linux-image-7.0.0-44-generic",
+      "version": "7.0.0-44.44",
+      "architecture": "amd64",
+      "size": 17379328
+    },
+    {
+      "type": "deb",
+      "name": "linux-image-generic-hwe-26.04",
+      "version": "7.0.0-44.44",
+      "architecture": "amd64",
+      "size": 13312
+    },
+    {
+      "type": "deb",
+      "name": "linux-main-modules-v4l2loopback-7.0.0-44-generic",
+      "version": "7.0.0-44.44",
+      "architecture": "amd64",
+      "size": 52224
+    },
+    {
+      "type": "deb",
+      "name": "linux-main-modules-zfs-7.0.0-44-generic",
+      "version": "7.0.0-44.44",
+      "architecture": "amd64",
+      "size": 2447360
+    },
+    {
+      "type": "deb",
+      "name": "linux-modules-7.0.0-44-generic",
+      "version": "7.0.0-44.44",
+      "architecture": "amd64",
+      "size": 167768064
+    },
+    {
+      "type": "deb",
+      "name": "locales",
+      "version": "2.43-2ubuntu2.7",
+      "architecture": "all",
+      "size": 16182272
+    },
+    {
+      "type": "deb",
+      "name": "login",
+      "version": "1:4.16.0-2+really2.41.3-3ubuntu2.2",
+      "architecture": "amd64",
+      "size": 201728
+    },
+    {
+      "type": "deb",
+      "name": "login.defs",
+      "version": "1:4.17.4-2ubuntu3",
+      "architecture": "all",
+      "size": 105472
+    },
+    {
+      "type": "deb",
+      "name": "mawk",
+      "version": "1.3.4.20260129-1",
+      "architecture": "amd64",
+      "size": 292864
+    },
+    {
+      "type": "deb",
+      "name": "media-types",
+      "version": "14.0.0build1",
+      "architecture": "all",
+      "size": 101376
+    },
+    {
+      "type": "deb",
+      "name": "mesa-libgallium",
+      "version": "26.0.8-1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 45671424
+    },
+    {
+      "type": "deb",
+      "name": "mesa-vulkan-drivers",
+      "version": "26.0.8-1ubuntu0.3",
+      "architecture": "amd64",
+      "size": 112861184
+    },
+    {
+      "type": "deb",
+      "name": "mount",
+      "version": "2.41.3-3ubuntu2.2",
+      "architecture": "amd64",
+      "size": 365568
+    },
+    {
+      "type": "deb",
+      "name": "nano",
+      "version": "8.7.1-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 892928
+    },
+    {
+      "type": "deb",
+      "name": "ncurses-base",
+      "version": "6.6+20251231-1",
+      "architecture": "all",
+      "size": 402432
+    },
+    {
+      "type": "deb",
+      "name": "ncurses-bin",
+      "version": "6.6+20251231-1",
+      "architecture": "amd64",
+      "size": 678912
+    },
+    {
+      "type": "deb",
+      "name": "ncurses-term",
+      "version": "6.6+20251231-1",
+      "architecture": "all",
+      "size": 4527104
+    },
+    {
+      "type": "deb",
+      "name": "netbase",
+      "version": "6.5build1",
+      "architecture": "all",
+      "size": 35840
+    },
+    {
+      "type": "deb",
+      "name": "netplan-generator",
+      "version": "1.2-1ubuntu5.1",
+      "architecture": "amd64",
+      "size": 324608
+    },
+    {
+      "type": "deb",
+      "name": "netplan.io",
+      "version": "1.2-1ubuntu5.1",
+      "architecture": "amd64",
+      "size": 348160
+    },
+    {
+      "type": "deb",
+      "name": "network-manager",
+      "version": "1.54.3-2ubuntu3.1",
+      "architecture": "amd64",
+      "size": 7795712
+    },
+    {
+      "type": "deb",
+      "name": "openssh-client",
+      "version": "1:10.2p1-2ubuntu3.8",
+      "architecture": "amd64",
+      "size": 3758080
+    },
+    {
+      "type": "deb",
+      "name": "openssl",
+      "version": "3.5.5-1ubuntu3.7",
+      "architecture": "amd64",
+      "size": 2583552
+    },
+    {
+      "type": "deb",
+      "name": "openssl-provider-legacy",
+      "version": "3.5.5-1ubuntu3.7",
+      "architecture": "amd64",
+      "size": 434176
+    },
+    {
+      "type": "deb",
+      "name": "passwd",
+      "version": "1:4.17.4-2ubuntu3",
+      "architecture": "amd64",
+      "size": 4452352
+    },
+    {
+      "type": "deb",
+      "name": "pci.ids",
+      "version": "0.0~2026.02.12-1",
+      "architecture": "all",
+      "size": 1598464
+    },
+    {
+      "type": "deb",
+      "name": "pciutils",
+      "version": "1:3.14.0-1build2",
+      "architecture": "amd64",
+      "size": 262144
+    },
+    {
+      "type": "deb",
+      "name": "perl-base",
+      "version": "5.40.1-7ubuntu0.4",
+      "architecture": "amd64",
+      "size": 8145920
+    },
+    {
+      "type": "deb",
+      "name": "pinentry-curses",
+      "version": "1.3.2-3ubuntu1",
+      "architecture": "amd64",
+      "size": 102400
+    },
+    {
+      "type": "deb",
+      "name": "pipewire",
+      "version": "1.6.2-1ubuntu1.2",
+      "architecture": "amd64",
+      "size": 144384
+    },
+    {
+      "type": "deb",
+      "name": "pipewire-bin",
+      "version": "1.6.2-1ubuntu1.2",
+      "architecture": "amd64",
+      "size": 2226176
+    },
+    {
+      "type": "deb",
+      "name": "pipewire-pulse",
+      "version": "1.6.2-1ubuntu1.2",
+      "architecture": "amd64",
+      "size": 56320
+    },
+    {
+      "type": "deb",
+      "name": "polkitd",
+      "version": "127-2ubuntu1.1",
+      "architecture": "amd64",
+      "size": 552960
+    },
+    {
+      "type": "deb",
+      "name": "procps",
+      "version": "2:4.0.4-9ubuntu1",
+      "architecture": "amd64",
+      "size": 1843200
+    },
+    {
+      "type": "deb",
+      "name": "psmisc",
+      "version": "23.7-2ubuntu2",
+      "architecture": "amd64",
+      "size": 618496
+    },
+    {
+      "type": "deb",
+      "name": "python3",
+      "version": "3.14.3-0ubuntu2",
+      "architecture": "amd64",
+      "size": 81920
+    },
+    {
+      "type": "deb",
+      "name": "python3-cffi-backend",
+      "version": "2.0.0-3build1",
+      "architecture": "amd64",
+      "size": 247808
+    },
+    {
+      "type": "deb",
+      "name": "python3-minimal",
+      "version": "3.14.3-0ubuntu2",
+      "architecture": "amd64",
+      "size": 112640
+    },
+    {
+      "type": "deb",
+      "name": "python3-netplan",
+      "version": "1.2-1ubuntu5.1",
+      "architecture": "amd64",
+      "size": 153600
+    },
+    {
+      "type": "deb",
+      "name": "python3-yaml",
+      "version": "6.0.3-1build1",
+      "architecture": "amd64",
+      "size": 574464
+    },
+    {
+      "type": "deb",
+      "name": "python3.14",
+      "version": "3.14.4-1ubuntu0.2",
+      "architecture": "amd64",
+      "size": 934912
+    },
+    {
+      "type": "deb",
+      "name": "python3.14-minimal",
+      "version": "3.14.4-1ubuntu0.2",
+      "architecture": "amd64",
+      "size": 7572480
+    },
+    {
+      "type": "deb",
+      "name": "readline-common",
+      "version": "8.3-4",
+      "architecture": "all",
+      "size": 82944
+    },
+    {
+      "type": "deb",
+      "name": "rfkill",
+      "version": "2.41.3-3ubuntu2.2",
+      "architecture": "amd64",
+      "size": 90112
+    },
+    {
+      "type": "deb",
+      "name": "rust-coreutils",
+      "version": "0.10.0-1ubuntu2~26.04.1",
+      "architecture": "amd64",
+      "size": 16731136
+    },
+    {
+      "type": "deb",
+      "name": "sed",
+      "version": "4.9-2ubuntu1",
+      "architecture": "amd64",
+      "size": 352256
+    },
+    {
+      "type": "deb",
+      "name": "sgml-base",
+      "version": "1.31+nmu1build1",
+      "architecture": "all",
+      "size": 66560
+    },
+    {
+      "type": "deb",
+      "name": "shared-mime-info",
+      "version": "2.4-5build3",
+      "architecture": "amd64",
+      "size": 2945024
+    },
+    {
+      "type": "deb",
+      "name": "sudo",
+      "version": "1.9.17p2-1ubuntu3.2",
+      "architecture": "amd64",
+      "size": 3555328
+    },
+    {
+      "type": "deb",
+      "name": "sudo-common",
+      "version": "1.2ubuntu",
+      "architecture": "all",
+      "size": 26624
+    },
+    {
+      "type": "deb",
+      "name": "systemd",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 11284480
+    },
+    {
+      "type": "deb",
+      "name": "systemd-boot",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 195584
+    },
+    {
+      "type": "deb",
+      "name": "systemd-boot-efi",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 326656
+    },
+    {
+      "type": "deb",
+      "name": "systemd-boot-tools",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 212992
+    },
+    {
+      "type": "deb",
+      "name": "systemd-repart",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 477184
+    },
+    {
+      "type": "deb",
+      "name": "systemd-resolved",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 888832
+    },
+    {
+      "type": "deb",
+      "name": "systemd-sysv",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 82944
+    },
+    {
+      "type": "deb",
+      "name": "systemd-timesyncd",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 187392
+    },
+    {
+      "type": "deb",
+      "name": "sysvinit-utils",
+      "version": "3.15-5ubuntu1",
+      "architecture": "amd64",
+      "size": 114688
+    },
+    {
+      "type": "deb",
+      "name": "tar",
+      "version": "1.35+dfsg-4ubuntu0.4",
+      "architecture": "amd64",
+      "size": 745472
+    },
+    {
+      "type": "deb",
+      "name": "tzdata",
+      "version": "2026e-0ubuntu0.26.04.1",
+      "architecture": "all",
+      "size": 1389568
+    },
+    {
+      "type": "deb",
+      "name": "ubuntu-keyring",
+      "version": "2023.11.28.1build1",
+      "architecture": "all",
+      "size": 29696
+    },
+    {
+      "type": "deb",
+      "name": "udev",
+      "version": "259.9-0ubuntu0.1",
+      "architecture": "amd64",
+      "size": 10891264
+    },
+    {
+      "type": "deb",
+      "name": "unzip",
+      "version": "6.0-29ubuntu1",
+      "architecture": "amd64",
+      "size": 425984
+    },
+    {
+      "type": "deb",
+      "name": "usbutils",
+      "version": "1:019-1",
+      "architecture": "amd64",
+      "size": 313344
+    },
+    {
+      "type": "deb",
+      "name": "user-session-migration",
+      "version": "0.5.1",
+      "architecture": "amd64",
+      "size": 46080
+    },
+    {
+      "type": "deb",
+      "name": "util-linux",
+      "version": "2.41.3-3ubuntu2.2",
+      "architecture": "amd64",
+      "size": 2957312
+    },
+    {
+      "type": "deb",
+      "name": "wireless-regdb",
+      "version": "2026.05.30-0ubuntu1~26.04.1",
+      "architecture": "all",
+      "size": 24576
+    },
+    {
+      "type": "deb",
+      "name": "wireplumber",
+      "version": "0.5.13-1ubuntu1.1",
+      "architecture": "amd64",
+      "size": 786432
+    },
+    {
+      "type": "deb",
+      "name": "wlr-randr",
+      "version": "0.4.1-1build1",
+      "architecture": "amd64",
+      "size": 45056
+    },
+    {
+      "type": "deb",
+      "name": "wpasupplicant",
+      "version": "2:2.11-0ubuntu5",
+      "architecture": "amd64",
+      "size": 4108288
+    },
+    {
+      "type": "deb",
+      "name": "x11-common",
+      "version": "1:7.7+26ubuntu1",
+      "architecture": "all",
+      "size": 284672
+    },
+    {
+      "type": "deb",
+      "name": "x11-xkb-utils",
+      "version": "7.7+9build1",
+      "architecture": "amd64",
+      "size": 499712
+    },
+    {
+      "type": "deb",
+      "name": "xdg-dbus-proxy",
+      "version": "0.1.7-1",
+      "architecture": "amd64",
+      "size": 75776
+    },
+    {
+      "type": "deb",
+      "name": "xdg-desktop-portal",
+      "version": "1.21.1+ds-1ubuntu3.1",
+      "architecture": "amd64",
+      "size": 1568768
+    },
+    {
+      "type": "deb",
+      "name": "xdg-user-dirs",
+      "version": "0.19-1",
+      "architecture": "amd64",
+      "size": 172032
+    },
+    {
+      "type": "deb",
+      "name": "xkb-data",
+      "version": "2.46-2",
+      "architecture": "all",
+      "size": 4239360
+    },
+    {
+      "type": "deb",
+      "name": "xml-core",
+      "version": "0.19build1",
+      "architecture": "all",
+      "size": 116736
+    },
+    {
+      "type": "deb",
+      "name": "xserver-common",
+      "version": "2:21.1.22-1ubuntu1.3",
+      "architecture": "all",
+      "size": 149504
+    },
+    {
+      "type": "deb",
+      "name": "xwayland",
+      "version": "2:24.1.10-1",
+      "architecture": "amd64",
+      "size": 2526208
+    },
+    {
+      "type": "deb",
+      "name": "xz-utils",
+      "version": "5.8.3-1ubuntu0.1",
+      "architecture": "amd64",
+      "size": 999424
+    },
+    {
+      "type": "deb",
+      "name": "zlib1g",
+      "version": "1:1.3.dfsg+really1.3.1-1ubuntu3.2",
+      "architecture": "amd64",
+      "size": 173056
+    },
+    {
+      "type": "deb",
+      "name": "zstd",
+      "version": "1.5.7+dfsg-3",
+      "architecture": "amd64",
+      "size": 1970176
+    }
+  ],
+  "extension": {}
+}

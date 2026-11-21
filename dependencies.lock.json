@@ -1,5 +1,5 @@
 {
-  "comment": "Pinned inputs outside Cargo.lock. Image packages and the Ubuntu archive snapshot are added in Phase 2.",
+  "comment": "Pinned inputs outside Cargo.lock. The image package set of each build is recorded in image/out/*.manifest.json.",
   "rust": {
     "channel": "1.91.1",
     "rustc": "rustc 1.91.1 (ed61e7d7e 2025-11-07)",
@@ -8,7 +8,9 @@
   },
   "development_host": {
     "windows": "Windows 11 + WSL2",
-    "wsl_distribution": "Ubuntu-24.04"
+    "wsl_distribution": "Ubuntu-24.04",
+    "python_windows": "Python 3 on PATH, standard library only (tooling/vm_harness.py)",
+    "vm_firmware": "edk2 images bundled with the pinned Windows QEMU (share/edk2-x86_64-code.fd, share/edk2-i386-vars.fd)"
   },
   "windows_qemu": {
     "provider": "Stefan Weil; linked by https://www.qemu.org/download/",
@@ -54,9 +56,17 @@
       "sha256": "0f79450d81e64326a862a8645ae1613890e486115101e51e41ca07d929388d87"
     }
   },
-  "ovmf": {
-    "vars_sha256": "5d2ac383371b408398accee7ec27c8c09ea5b74a0de0ceea6513388b15be5d1e",
-    "code_sha256": "ad23261d43116abc3747d59a7837fbf578c9586a8993f4eeba064cd07eccb083",
-    "package": "2024.02-2ubuntu0.10"
+  "image": {
+    "base": "Ubuntu 26.04 LTS (resolute)",
+    "kernel_package": "linux-image-generic-hwe-26.04",
+    "archive": "http://archive.ubuntu.com/ubuntu (resolute, resolute-updates, resolute-security); snapshot pinning is not yet enabled",
+    "mkosi": {
+      "version": "v27.1",
+      "commit": "ecf7f5702bb2052b7a69cab3fe7d37bc3b9ad77b",
+      "source": "https://github.com/systemd/mkosi",
+      "location": ".deps/mkosi-v27.1",
+      "license": "LGPL-2.1-or-later (build tool)"
+    },
+    "tools_tree": "Ubuntu resolute, built by mkosi (ToolsTree=yes)"
   }
 }

@@ -1,0 +1,41 @@
+#!/bin/sh
+# Runs inside the image after package installation.
+set -eu
+
+# Branding. VERSION_CODENAME and UBUNTU_CODENAME stay, so apt sources that key
+# on the Ubuntu release keep working.
+release=/usr/lib/os-release
+set_field() {
+    if grep -q "^$1=" "$release"; then
+        sed -i "s|^$1=.*|$1=$2|" "$release"
+    else
+        echo "$1=$2" >> "$release"
+    fi
+}
+set_field NAME '"AmityOS"'
+set_field PRETTY_NAME '"AmityOS 0.1 (development)"'
+set_field ID amityos
+set_field ID_LIKE '"ubuntu debian"'
+set_field VERSION '"0.1 (development)"'
+set_field VERSION_ID '"0.1"'
+set_field HOME_URL '"https://github.com/You-Know-Its-Me-Studios/AmityOS"'
+sed -i '/^SUPPORT_URL=/d;/^BUG_REPORT_URL=/d;/^PRIVACY_POLICY_URL=/d;/^LOGO=/d' "$release"
+printf 'AmityOS 0.1 (development) \\n \\l\n\n' > /etc/issue
+
+# Development account. The first-run setup (Phase 8) replaces this.
+if ! id amity >/dev/null 2>&1; then
+    useradd --create-home --shell /bin/bash --groups sudo,video,audio,input,render amity
+    echo 'amity:amity' | chpasswd
+fi
+
+# The locale named in mkosi.conf has to be generated on Ubuntu.
+locale-gen en_US.UTF-8
+update-locale LANG=en_US.UTF-8
+
+# NetworkManager owns all networking; systemd-networkd would only wait for
+# links it does not manage and fail the boot's network-online check.
+systemctl disable systemd-networkd.service systemd-networkd.socket systemd-networkd-wait-online.service 2>/dev/null || true
+systemctl mask systemd-networkd-wait-online.service
+systemctl enable NetworkManager.service NetworkManager-wait-online.service systemd-resolved.service systemd-timesyncd.service
+systemctl enable amity-session.service amity-flathub.service
+systemctl set-default graphical.target

@@ -32,13 +32,37 @@ crate is linked yet.**
 | `assets/wallpapers/amity-default.png` and the Amity emblem cut from it | owner-supplied artwork; rights remain with the owner | see `assets/icons/BRAND-SOURCE.md` |
 | `assets/icons/source/*.svg` | MIT (`assets/icons/LICENSE`) | original designs |
 
+## Operating system image
+
+The image is assembled from Ubuntu 26.04 packages. They are separate programs; none is
+linked into an owned component. The full package list with versions for each build is the
+image manifest (`image/out/*.manifest.json`; the Phase 2 one is in
+`docs/acceptance/phase-2/image-manifest.json`). Each package's licence text is installed
+under `/usr/share/doc/<package>/copyright` in the image.
+
+| Component | Licence | Notes |
+|---|---|---|
+| Linux kernel (Ubuntu HWE 7.0) | GPL-2.0 | unmodified Ubuntu build; no AmityOS patches |
+| `linux-firmware` | mixed, per-file redistributable firmware licences | from the Ubuntu archive |
+| systemd, systemd-boot | LGPL-2.1-or-later | |
+| NetworkManager | GPL-2.0-or-later / LGPL-2.1-or-later | |
+| Mesa, XWayland, PipeWire, WirePlumber | MIT | |
+| xdg-desktop-portal, Flatpak | LGPL-2.1-or-later | |
+| labwc (placeholder compositor until `amity-comp`) | GPL-2.0-only | separate program; to be removed in Phase 3 |
+| foot (placeholder terminal) | MIT | to be replaced by the Amity terminal |
+| Inter, JetBrains Mono, Noto fonts | OFL-1.1 | |
+
+Not in the image: NVIDIA drivers, CUDA, ROCm, Chrome and VS Code. The user installs
+those; Chrome and VS Code were installed inside a test VM only.
+
 ## Development tools (not distributed)
 
 | Tool | Version | Licence |
 |---|---|---|
 | Rust toolchain | 1.91.1 | MIT OR Apache-2.0 |
 | QEMU for Windows (VM launch) | 8.2.0 | GPL-2.0 (separate program) |
-| OVMF firmware (VM boot) | 2024.02 | BSD-2-Clause-Patent |
+| edk2/OVMF firmware bundled with that QEMU (VM boot) | as bundled | BSD-2-Clause-Patent |
+| mkosi (image build) | v27.1 | LGPL-2.1-or-later |
 
 ## Planned components
 

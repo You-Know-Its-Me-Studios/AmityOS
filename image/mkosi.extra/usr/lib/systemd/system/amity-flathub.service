@@ -1,0 +1,18 @@
+# Flathub is enabled by default (docs/decisions/0007). The remote definition is
+# downloaded from Flathub itself the first time the network is up.
+[Unit]
+Description=Enable the Flathub application source
+Wants=network-online.target
+After=network-online.target
+ConditionPathExists=!/var/lib/amityos/flathub-enabled
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+ExecStartPost=/usr/bin/mkdir -p /var/lib/amityos
+ExecStartPost=/usr/bin/touch /var/lib/amityos/flathub-enabled
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

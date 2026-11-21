@@ -13,13 +13,15 @@ other Amity apps, and the Amity AI runtime. See
 
 ## Status
 
-The project is being restructured onto the Linux base. Nothing bootable exists yet.
+The project is being rebuilt on the Linux base. The base image boots in a VM to a
+placeholder desktop; the AmityOS compositor, shell and services are not written yet.
 
 | Phase | State |
 |---|---|
 | 0 Plan | done: [migration plan](docs/migration/plan.md), [decisions](docs/decisions/) |
-| 1 Restructure | new Cargo workspace builds and tests in WSL; see [acceptance](docs/acceptance/phase-1.md) |
-| 2 Bootable image, 3 compositor and shell, 4 redesign, 5 Spaces/apps/tasks, 6 AI runtime, 7 compatibility matrix, 8 product layer | not started: [roadmap](docs/roadmap.md) |
+| 1 Restructure | done: new Cargo workspace builds and tests in WSL; [acceptance](docs/acceptance/phase-1.md) |
+| 2 Bootable image | done in a VM: Ubuntu 26.04 base boots under QEMU to a graphical session; network, Chrome and VS Code work; [acceptance](docs/acceptance/phase-2.md). Not run on real hardware |
+| 3 compositor and shell, 4 redesign, 5 Spaces/apps/tasks, 6 AI runtime, 7 compatibility matrix, 8 product layer | not started: [roadmap](docs/roadmap.md) |
 
 ## Layout
 
@@ -45,10 +47,16 @@ and downloads stay under `F:\AmityOS`; there is no C: fallback.
 
 ```powershell
 cd F:\AmityOS
-.\AmityOS.ps1 build   # cargo build of the workspace, in WSL, pinned toolchain
-.\AmityOS.ps1 test    # cargo test of the workspace
-.\AmityOS.ps1         # boot the OS image in a VM (available from Phase 2)
+.\AmityOS.ps1 build    # cargo build of the workspace, in WSL, pinned toolchain
+.\AmityOS.ps1 test     # cargo test of the workspace
+.\AmityOS.ps1 image    # build the OS image with mkosi (about 15 minutes the first time)
+.\AmityOS.ps1          # boot the image in a VM (QEMU with WHPX); -ResetVm starts a fresh VM disk
+.\AmityOS.ps1 vmtest   # boot a disposable VM without a window and run the image checks
 ```
+
+The VM needs the Windows Hypervisor Platform feature; `-Accel tcg` runs without it, slowly.
+The development image logs in as `amity` (password `amity`). Booting a real machine:
+[docs/hardware-boot.md](docs/hardware-boot.md).
 
 ## Rules
 
